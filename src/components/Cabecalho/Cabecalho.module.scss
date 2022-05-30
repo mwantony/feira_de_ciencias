@@ -1,0 +1,43 @@
+@import 'styles/_variaveis.scss';
+
+.cabecalho {
+  display: block;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.navegacao {
+  margin: auto;
+  display: block;
+}
+
+.navegacao__lista {
+  padding: 0;
+  justify-content: space-around;
+  display: block;
+  list-style: none;
+  margin: 0 auto;
+  display: flex;
+}
+
+.navegacao__componente {
+  text-decoration: none;
+}
+
+.navegacao__link {
+  color: #EEEEEE;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin: 1rem 0 1rem 0;
+  transition: 500ms ease-in-out;
+  &:hover {
+    border-bottom: 1px solid $branco-smooth;
+  }
+
+}
+
+
+.navegacao__link--selecionado {
+
+  border-bottom: 1px solid $branco-smooth;
+}
