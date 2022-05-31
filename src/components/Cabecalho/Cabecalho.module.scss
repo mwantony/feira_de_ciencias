@@ -1,23 +1,50 @@
 @import 'styles/_variaveis.scss';
 
 .cabecalho {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50px;
   width: 100vw;
+  background-color: $surface;
   margin: 0 auto;
+}
+
+.cabecalho__hamburguer {
+  color: $branco-smooth;
+  padding-right: .5rem;
 }
 
 .navegacao {
   margin: auto;
   display: block;
+  width: 100%;
+  height: 50vh;
+}
+
+.navegacao__ativo {
+  transform: translateX(50%);
 }
 
 .navegacao__lista {
+  position: absolute;
+  z-index: 1;
+  transition: 500ms ease-in-out;
   padding: 0;
-  justify-content: space-around;
-  display: block;
+  width: 100%;
+  transform: translateY(-100%);
   list-style: none;
+  justify-content: space-evenly;
+  background-color: $surface;
+  align-items: center;
+  flex-direction: column;
   margin: 0 auto;
+  height: 50vh;
   display: flex;
+}
+
+.navegacao__lista--ativo {
+  transform: translateY(0%);
 }
 
 .navegacao__componente {
@@ -27,8 +54,7 @@
 .navegacao__link {
   color: #EEEEEE;
   text-decoration: none;
-  font-size: 1.2rem;
-  margin: 1rem 0 1rem 0;
+  font-size: 1.3rem;
   transition: 500ms ease-in-out;
   &:hover {
     border-bottom: 1px solid $branco-smooth;
@@ -38,6 +64,12 @@
 
 
 .navegacao__link--selecionado {
-
   border-bottom: 1px solid $branco-smooth;
+}
+
+.lista__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: $branco-smooth;
 }

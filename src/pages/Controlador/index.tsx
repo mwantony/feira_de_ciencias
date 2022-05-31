@@ -1,32 +1,44 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import Input from '@mui/material/Input';
 import styles from './Controlador.module.scss'
+import Forma from './Forma'
+import { Button, TextField } from '@mui/material';
 export default function Controlador() {
-  const classNames = require('classnames')
-  const formas = [
+  const [entradas, setEntradas] = useState([
     {
-      "label": "Entradas",
-      "to": "/entradas",
-      "class": "entradas"
-    },
-    {
-      "label": "Saidas",
-      "to": '/saidas',
-      "class": "saidas"
+      "quantia": 230
     }
-  ]
+  ])
+  const [saidas, setSaidas] = useState([
+    {
+      "quantia": 120
+    }
+  ])
+  const [selecionado, setSelecionado] = useState(entradas)
+  const [forma, setForma] = useState(1)
+  const classNames = require('classnames')
+
+  useEffect(() => {
+    if(forma === 1) {
+      setSelecionado([...entradas])
+    } else {
+      setSelecionado([...saidas])
+    }
+  }, [forma, entradas, saidas]) 
   return(
-    <section className={styles.controlador}>
-      <div className={styles.aba}>
-        <ul className={styles.aba__lista}>
-          {formas.map((forma, index) => (
-            <Link className={classNames({
-              [styles.aba__forma]: true,
-              [styles[`aba__forma--${forma.class}`]]: true
-            })} key={index} to={forma.to}><li>{forma.label}</li></Link>
+    <section>
+      <Forma forma={forma} setForma={setForma}></Forma>
+      <div className={styles.controlador}>
+        <div className={styles.input__div}>
+          <input placeholder="Valor"className={styles.controlador__input}></input>
+          <button className={styles.controlador__botao}>Aplicar</button>
+        </div>
+        <ul className={styles.controlador__lista}>
+          {selecionado.map((valor, index) => (
+            <li className={styles.lista__quantia} key={index}>{valor.quantia}</li>
           ))}
         </ul>
       </div>
-      <input type="text"/>
     </section>
   )
 }

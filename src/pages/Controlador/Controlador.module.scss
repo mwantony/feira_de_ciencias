@@ -1,22 +1,23 @@
 @import 'styles/_variaveis.scss';
 
-.aba__lista {
-  display: flex;
-  justify-content: space-evenly;
+.input__div {
+  display: block;
+  margin: .5rem auto;
   width: 50%;
-  padding: 0;
-  list-style: none;
+}
+
+.controlador__botao {
+  width: 40%;
   margin: 0 auto;
+  display: block;
 }
 
-.aba__forma {
-  text-decoration: none;
-}
-
-.aba__forma--entradas {
-  color: lightgreen;
-}
-
-.aba__forma--saidas {
-  color: red;
+.controlador__input {
+  margin: .5rem 0 .5rem 0;
+  color: $branco-smooth;
+  border: none;
+  padding: .5rem;
+  background-color: $surface;
+  text-align: center;
+  width: 100%;
 }
