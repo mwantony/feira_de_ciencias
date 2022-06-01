@@ -1,3 +1,5 @@
+import styles from './Resetar.module.scss'
+
 interface Props {
   setEntradas: React.Dispatch<
     React.SetStateAction<
@@ -17,9 +19,14 @@ interface Props {
   setEstadoSaidas: React.Dispatch<React.SetStateAction<number>>
 }
 
+const classNames = require('classnames')
+
 export default function Resetar({ setEntradas, setSaidas, setEstadoEntradas, setEstadoSaidas }: Props) {
   return (
-    <button
+    <div className={styles.resetar}>
+    <button className={classNames({
+      [styles.resetar__button]: true
+    })}
       onClick={() => {
         setEstadoEntradas(0)
         setEstadoSaidas(0)
@@ -31,5 +38,6 @@ export default function Resetar({ setEntradas, setSaidas, setEstadoEntradas, set
     >
       Resetar
     </button>
+    </div>
   );
 }

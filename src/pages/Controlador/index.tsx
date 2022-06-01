@@ -3,6 +3,7 @@ import styles from "./Controlador.module.scss";
 import Estado from "./Estado";
 import Forma from "./Forma";
 import Resetar from "./Resetar";
+import { CurrencyBitcoin } from "@mui/icons-material";
 export default function Controlador() {
   const [dadosInput, setDadosInput] = useState("");
   const [entradas, setEntradas] = useState([
@@ -55,10 +56,12 @@ export default function Controlador() {
     <section>
       <Estado estado={estadoAtual}></Estado>
       <Forma forma={forma} setForma={setForma}></Forma>
+      <Resetar setEstadoEntradas={setEstadoEntradas} setEstadoSaidas={setEstadoSaidas} setEntradas={setEntradas} setSaidas={setSaidas}></Resetar>
       <div className={styles.controlador}>
         <div className={styles.input__div}>
           <input
             type='number'
+            id="input"
             onChange={(evento) => {
               setDadosInput(evento.target.value);
               console.log(estadoEntradas, estadoSaidas);
@@ -67,6 +70,7 @@ export default function Controlador() {
           ></input>
           <button
             onClick={() => {
+              setDadosInput('')
               setEstadoAtual(estadoEntradas - estadoSaidas)
               if (forma === 1) {
                 setEstadoEntradas(estadoEntradas + Number(dadosInput))
@@ -127,7 +131,6 @@ export default function Controlador() {
             }
           })}
         </ul>
-        <Resetar setEstadoEntradas={setEstadoEntradas} setEstadoSaidas={setEstadoSaidas} setEntradas={setEntradas} setSaidas={setSaidas}></Resetar>
       </div>
     </section>
   );
