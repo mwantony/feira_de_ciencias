@@ -6,13 +6,12 @@
   justify-content: flex-end;
   height: 50px;
   width: 100vw;
-  background-color: $surface;
   margin: 0 auto;
 }
 
 .cabecalho__hamburguer {
-  color: $branco-smooth;
-  padding-right: .5rem;
+  color: $surface;
+  padding-right: 1rem;
 }
 
 .navegacao {
@@ -31,8 +30,9 @@
   z-index: 1;
   transition: 500ms ease-in-out;
   padding: 0;
+  box-shadow: 0px 4px 10px $text-shadow;
   width: 100%;
-  transform: translateY(-100%);
+  transform: translateY(-110%);
   list-style: none;
   justify-content: space-evenly;
   background-color: $surface;
@@ -52,19 +52,21 @@
 }
 
 .navegacao__link {
-  color: #EEEEEE;
+  color: $tema-principal;
   text-decoration: none;
   font-size: 1.3rem;
+  text-shadow: 0px 2px 4px $text-shadow;
   transition: 500ms ease-in-out;
   &:hover {
-    border-bottom: 1px solid $branco-smooth;
+    border-bottom: 1px solid $tema-principal;
   }
 
 }
 
 
 .navegacao__link--selecionado {
-  border-bottom: 1px solid $branco-smooth;
+  border-left: .6rem solid $branco-smooth;
+  padding-left: .5rem;
 }
 
 .lista__close {

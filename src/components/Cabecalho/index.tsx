@@ -49,7 +49,7 @@ export default function Cabecalho() {
         <MenuSharp onClick={() => {
           setAbrir(true)
           console.log(abrir)
-        }} sx={{fontSize: 30}} className={styles.cabecalho__hamburguer}></MenuSharp>
+        }} sx={{fontSize: 37}} className={styles.cabecalho__hamburguer}></MenuSharp>
     </header>
   );
 }

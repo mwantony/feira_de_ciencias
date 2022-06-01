@@ -1,23 +1,59 @@
-@import 'styles/_variaveis.scss';
+@import "styles/_variaveis.scss";
 
 .input__div {
-  display: block;
-  margin: .5rem auto;
-  width: 50%;
+  display: flex;
+  margin: 1rem auto;
+  width: 65%;
+  padding-left: .2rem;
+  align-items: center;
 }
 
 .controlador__botao {
-  width: 40%;
+  &:disabled {
+    opacity: .6;
+  }
+  width: 90px;
   margin: 0 auto;
   display: block;
+  background: $surface;
+  padding: .5rem;
+  border: none;
+  color: $tema-principal;
+  box-shadow: 0px 2px 6px $text-shadow;
+  border-radius: 2px;
 }
 
 .controlador__input {
-  margin: .5rem 0 .5rem 0;
-  color: $branco-smooth;
+  border-radius: 2px;
+  box-shadow: 0px 2px 6px $text-shadow;
+  margin: 0.5rem 0 0.5rem 0;
+  color: $surface;
   border: none;
-  padding: .5rem;
-  background-color: $surface;
+  padding: 0.5rem;
+  background-color: $input;
   text-align: center;
+  width: 120px;
+}
+
+.none {
+  display: none;
+}
+
+.controlador__lista {
+  display: flex;
+  padding: 1rem 0 1rem 0;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.lista__quantia {
+  background-color: $tema-principal;
   width: 100%;
+  margin: .6rem .6rem .6rem 0;
+  height: 80px;
+  border-radius: 15px;
+  box-shadow: 0px 3px 10px $text-shadow;
 }

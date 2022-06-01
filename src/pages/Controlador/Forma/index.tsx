@@ -33,7 +33,8 @@ export default function Forma({forma, setForma}: Props) {
         } className={classNames({
           [styles.aba__forma]: true,
           [styles[`aba__forma--${item.class}`]]: true,
-          [styles[`aba__forma--ativo`]]: forma === (index + 1) ? true : ''
+          [styles[`aba__forma--ativo-entrada`]]: forma === (index + 1) && item.class === 'entradas' ? true : '',
+          [styles[`aba__forma--ativo-saida`]]: forma === (index + 1) && item.class === 'saidas' ? true : ''
         })}>{item.label}</li>
       ))}
     </ul>

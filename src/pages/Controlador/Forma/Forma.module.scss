@@ -12,10 +12,13 @@
 
 .aba__forma {
   text-decoration: none;
+  font-weight: 800;
   margin-top: .3rem;
-  padding: .6rem;
+  margin: .6rem .6rem .6rem 0;
+  padding-left: .2rem;
   border-radius: 0 .3rem;
-  font-size: 1.2rem;
+  font-size: 20px;
+  text-shadow: 0px 2px 4px $text-shadow;
 
   &:hover {
     cursor: pointer;
@@ -23,13 +26,18 @@
 }
 
 .aba__forma--entradas {
-  color: lightgreen;
+  color: #008B0E;
+
 }
 
 .aba__forma--saidas {
-  color: red;
+  color: #CC0000;
 }
 
-.aba__forma--ativo {
-  background-color: $surface;
+.aba__forma--ativo-entrada {
+  border-left: 8px #008B0E solid;
+}
+
+.aba__forma--ativo-saida {
+  border-left: 8px #CC0000 solid;
 }
