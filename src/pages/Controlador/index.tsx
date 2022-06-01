@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getEnt, setEnt, setSai } from "data/localStorage";
 import Input from "@mui/material/Input";
 import styles from "./Controlador.module.scss";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import Forma from "./Forma";
 import { Button, TextField } from "@mui/material";
 import { stringify } from "querystring";
@@ -36,12 +36,15 @@ export default function Controlador() {
     }
   }, [forma, entradas, saidas]);
   const classNames = require("classnames");
-  const dataEnt: Array<any> = JSON.parse(localStorage.entradas) || [
+    let dataEnt: Array<any> = JSON.parse(localStorage.entradas) || [
+
+  ];
+
+  /*let [dataEnt, setDataEnt] = useState();*/
+  let dataSai: Array<any> = JSON.parse(localStorage.saidas) || [
     { quantia: "" },
   ];
-  const dataSai: Array<any> = JSON.parse(localStorage.saidas) || [
-    { quantia: "" },
-  ];
+
   return (
     <section>
       <Forma forma={forma} setForma={setForma}></Forma>
@@ -50,7 +53,6 @@ export default function Controlador() {
           <input
             onChange={(evento) => {
               setDadosInput(evento.target.value);
-              console.log(dataEnt);
             }}
             placeholder="Valor"
             className={styles.controlador__input}
@@ -78,33 +80,49 @@ export default function Controlador() {
           </button>
         </div>
         <ul className={styles.controlador__lista}>
-          {dataEnt.map((valor, index) => (
-            <li
-              className={classNames({
-                [styles.lista__quantia]: true,
-                [styles.none]: forma !== 1 ? true : false,
-              })}
-              key={index}
-            >
-              {valor.quantia}
-            </li>
-          ))}
-          {dataSai.map((valor, index) => {
-            if(valor.quantia) {
-              return(
+          {dataEnt.map((valor, index) => {
+            if (valor.quantia) {
+              return (
                 <li
-                className={classNames({
-                  [styles.lista__quantia]: true,
-                  [styles.none]: forma === 1 ? true : false,
-                })}
-                key={index}
-              >
-                {valor.quantia}as
-              <DeleteIcon></DeleteIcon>
-              </li>
-              )
+                  className={classNames({
+                    [styles.lista__quantia]: true,
+                    [styles.none]: forma !== 1 ? true : false,
+                  })}
+                  key={index}
+                >
+                  {valor.quantia}
+                  <DeleteIcon
+                    onClick={(evento) => {
+                      window.localStorage.removeItem("entradas");
+                      dataEnt = dataEnt.splice(index, 1);
+                      console.log(dataEnt);
+                    }}
+                  ></DeleteIcon>
+                </li>
+              );
             }
-        })}
+          })}
+          {dataSai.map((valor, index) => {
+            if (valor.quantia) {
+              return (
+                <li
+                  className={classNames({
+                    [styles.lista__quantia]: true,
+                    [styles.none]: forma === 1 ? true : false,
+                  })}
+                  key={index}
+                >
+                  {valor.quantia}
+                  <button
+                    onClick={() => {
+                      dataSai.splice(index, 1);
+                      console.log(dataSai);
+                    }}
+                  ></button>
+                </li>
+              );
+            }
+          })}
         </ul>
         <Resetar setEntradas={setEntradas} setSaidas={setSaidas}></Resetar>
       </div>
