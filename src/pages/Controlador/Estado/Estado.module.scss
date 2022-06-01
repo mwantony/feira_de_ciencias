@@ -1,0 +1,21 @@
+@import 'styles/_variaveis.scss';
+
+.estado {
+  position: absolute;
+  top: -.4rem;
+  margin-left: 1rem;
+}
+
+.controlador__saldo {
+
+  font-size: 30px;
+  text-shadow: 0px 2px 4px $text-shadow;
+}
+
+.controlador__saldo--positivo {
+  color: $positivo;
+}
+
+.controlador__saldo--negativo {
+  color: $negativo;
+}

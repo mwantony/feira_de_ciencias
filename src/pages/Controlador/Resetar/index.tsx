@@ -13,12 +13,16 @@ interface Props {
       }[]
     >
   >;
+  setEstadoEntradas: React.Dispatch<React.SetStateAction<number>>
+  setEstadoSaidas: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function Resetar({ setEntradas, setSaidas }: Props) {
+export default function Resetar({ setEntradas, setSaidas, setEstadoEntradas, setEstadoSaidas }: Props) {
   return (
     <button
       onClick={() => {
+        setEstadoEntradas(0)
+        setEstadoSaidas(0)
         setEntradas([{"quantia": ''}])
         setSaidas([{"quantia": ''}])
         window.localStorage.removeItem("entradas");
