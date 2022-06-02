@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import ConfirmarTransacao from "./ConfirmarTransacao";
 import styles from "./Controlador.module.scss";
 import Estado from "./Estado";
 import Forma from "./Forma";
@@ -11,6 +12,8 @@ interface Props {
 }
 
 export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props) {
+  const [transacao, setTransacao] = useState(false)
+  const [fechar, setFechar] = useState(true)
   const [dadosInput, setDadosInput] = useState("");
   const [entradas, setEntradas] = useState([
     {
@@ -36,6 +39,33 @@ export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props
   const [forma, setForma] = useState(1);
   const [estadoAtual, setEstadoAtual] = useState(estadoEntradas - estadoSaidas)
   useEffect(() => {
+    if(transacao === true) {
+      if(Number(dadosInput) >= 0) {
+        setDadosInput('')
+        setEstadoAtual(estadoEntradas - estadoSaidas)
+        setDTotal(estadoAtual)
+        if (forma === 1) {
+          setEstadoEntradas(estadoEntradas + Number(dadosInput))
+          setDEntradas(estadoEntradas)
+          setEntradas([...entradas, { quantia: String(dadosInput) }]);
+          window.localStorage.setItem(
+            "entradas",
+            JSON.stringify([...dataEnt, { quantia: Number(dadosInput) }])
+          );
+        } else {
+          setEstadoSaidas(estadoSaidas + Number(dadosInput))
+          setDSaidas(estadoSaidas)
+          totalSaidas += Number(dadosInput)
+          setSaidas([...saidas, { quantia: String(dadosInput) }]);
+          window.localStorage.setItem(
+            "saidas",
+            JSON.stringify([...dataSai, { quantia: Number(dadosInput) }])
+          );
+        }
+      } else {
+        alert('O valor deve ser positivo')
+      }
+    }
     setEstadoAtual(estadoEntradas - estadoSaidas)
     setDTotal(estadoAtual)
     if(totalEntradas !== totalEntradas - 1) {
@@ -55,7 +85,8 @@ export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props
     } else {
       setSelecionado([...saidas]);
     }
-  }, [forma, entradas, saidas, totalEntradas, totalSaidas, estadoEntradas, estadoSaidas, setDTotal, estadoAtual, setDEntradas, setDSaidas]);
+    
+  }, [entradas, saidas, totalEntradas, totalSaidas, estadoEntradas, estadoSaidas, setDTotal, estadoAtual, setDEntradas, setDSaidas, transacao, dadosInput, forma, setDadosInput, setEstadoAtual, setDTotal, setSelecionado, setEntradas, setSaidas, setEstadoSaidas, setEstadoEntradas]);
   const classNames = require("classnames");
   let dataEnt: Array<any> = JSON.parse(localStorage.entradas) || [];
 
@@ -65,6 +96,7 @@ export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props
 
   return (
     <section>
+      <ConfirmarTransacao fechar={fechar} setFechar={setFechar} setTransacao={setTransacao}></ConfirmarTransacao>
       <Estado estado={estadoAtual}></Estado>
       <Forma forma={forma} setForma={setForma}></Forma>
       <Resetar setEstadoEntradas={setEstadoEntradas} setEstadoSaidas={setEstadoSaidas} setEntradas={setEntradas} setSaidas={setSaidas}></Resetar>
@@ -76,37 +108,13 @@ export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props
             id="input"
             onChange={(evento: any) => {
               setDadosInput(evento.target.value);
-              console.log(estadoEntradas, estadoSaidas);
+              console.log(transacao);
             }}
             className={styles.controlador__input}
           ></input>
           <button
             onClick={() => {
-              if(Number(dadosInput) >= 0) {
-                setDadosInput('')
-                setEstadoAtual(estadoEntradas - estadoSaidas)
-                setDTotal(estadoAtual)
-                if (forma === 1) {
-                  setEstadoEntradas(estadoEntradas + Number(dadosInput))
-                  setDEntradas(estadoEntradas)
-                  setEntradas([...entradas, { quantia: String(dadosInput) }]);
-                  window.localStorage.setItem(
-                    "entradas",
-                    JSON.stringify([...dataEnt, { quantia: Number(dadosInput) }])
-                  );
-                } else {
-                  setEstadoSaidas(estadoSaidas + Number(dadosInput))
-                  setDSaidas(estadoSaidas)
-                  totalSaidas += Number(dadosInput)
-                  setSaidas([...saidas, { quantia: String(dadosInput) }]);
-                  window.localStorage.setItem(
-                    "saidas",
-                    JSON.stringify([...dataSai, { quantia: Number(dadosInput) }])
-                  );
-                }
-              } else {
-                alert('O valor deve ser positivo')
-              }
+              setFechar(false)
             }}
             disabled={dadosInput === "" ? true : false}
             className={styles.controlador__botao}
@@ -154,3 +162,4 @@ export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props
     </section>
   );
 }
+
