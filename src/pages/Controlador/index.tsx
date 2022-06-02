@@ -83,6 +83,7 @@ export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props
           <button
             onClick={() => {
               if(Number(dadosInput) >= 0) {
+                console.log('ok')
                 setDadosInput('')
                 setEstadoAtual(estadoEntradas - estadoSaidas)
                 setDTotal(estadoAtual)
