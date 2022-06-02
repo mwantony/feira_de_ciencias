@@ -1,4 +1,5 @@
 import Cabecalho from 'components/Cabecalho'
+import Aplicativo from 'pages/Aplicativo'
 import Carteira from 'pages/Carteira'
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom'
@@ -10,6 +11,9 @@ export default function AppRouter() {
   useEffect(() => {
     if(window.location.href === 'http://localhost:3000/carteira') {
       setSelecionado(1)
+    }
+    if(window.location.href === 'http://localhost:3000/aplicativo') {
+      setSelecionado(2)
     }
     console.log('s')
   })
@@ -24,6 +28,7 @@ export default function AppRouter() {
         <Route path='/' element={<PaginaPadrao></PaginaPadrao>}>
           <Route index element={<Controlador setDEntradas={setDEntradas} setDSaidas={setDSaidas} setDTotal={setDTotal}></Controlador>}></Route>
           <Route path='carteira' element={<Carteira entradas={dEntradas} saidas={dSaidas} total={dTotal}></Carteira>}></Route>
+          <Route path='aplicativo' element={<Aplicativo></Aplicativo>}></Route>
         </Route>
       </Routes>
       </main>

@@ -23,8 +23,8 @@ export default function Cabecalho({selecionado, setSelecionado}: Props) {
       to: "/carteira",
     },
     {
-      label: "Extrato",
-      to: "/extrato",
+      label: "Aplicativo",
+      to: "/aplicativo",
     },
   ];
   return (

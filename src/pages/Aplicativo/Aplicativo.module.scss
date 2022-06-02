@@ -1,0 +1,77 @@
+@import 'styles/_variaveis.scss';
+
+.aplicativo {
+  margin-top: 2.5rem;
+  padding: 0 2rem;
+}
+
+.downloads {
+  color: $positivo;
+  text-shadow: 0px 2px 4px $text-shadow;
+}
+
+.download__app {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.app__titulo {
+  color: $surface;
+  text-shadow: 0px 2px 4px $text-shadow;
+}
+
+.baixar__app {
+  border: none;
+  box-shadow: 0px 2px 4px $text-shadow;
+  height: 40px;
+  color: $tema-principal;
+  padding: 0 1rem;
+  font-weight: 800;
+  font-size: 16px;
+  text-shadow: 0px 2px 4px $text-shadow;
+  border-radius: 2px;
+  background-color: $surface;
+}
+
+.download__planilha {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.planilha__titulo {
+  color: $surface;
+  text-shadow: 0px 2px 4px $text-shadow;
+}
+
+.baixar__planilha {
+  border: none;
+  background-color: $negativo;
+  box-shadow: 0px 2px 4px $text-shadow;
+  color: $tema-principal;
+  text-shadow: 0px 2px 4px $text-shadow;
+  padding: .7rem 1.2rem;
+  border-radius: 2px;
+  font-weight: 800;
+}
+
+.aplicativo__porqueusar {
+  margin-top: 3rem;
+}
+
+.porqueusar__titulo {
+  color: $positivo;
+  text-shadow: 0px 2px 4px $text-shadow;
+}
+
+.porqueusar__paragraph {
+  color: $surface;
+  font-weight: 400;
+  font-size: 16px;
+  text-shadow: 0px 1px 4px $text-shadow;
+  line-height: 1.3rem;
+  text-indent: 30px;
+  text-align: justify;
+}
