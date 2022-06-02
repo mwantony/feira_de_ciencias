@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "react-intl-currency-input": "^0.2.6",
     "typescript-plugin-css-modules": "^3.4.0"
   }
 }

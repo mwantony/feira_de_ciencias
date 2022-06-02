@@ -4,18 +4,23 @@ import styles from "./Cabecalho.module.scss";
 import { MenuSharp } from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function Cabecalho() {
+interface Props {
+  selecionado: number,
+  setSelecionado: React.Dispatch<React.SetStateAction<number>>
+}
+
+export default function Cabecalho({selecionado, setSelecionado}: Props) {
   const [abrir, setAbrir] = useState(false);
   const classNames = require("classnames");
-  const [selecionado, setSelecionado] = useState(0)
+
   const menu = [
     {
       label: "Controlador",
       to: "/",
     },
     {
-      label: "Calculadora",
-      to: "/calculadora",
+      label: "Carteira",
+      to: "/carteira",
     },
     {
       label: "Extrato",
@@ -33,6 +38,7 @@ export default function Cabecalho() {
             <Link key={index} className={styles.navegacao__componente} to={link.to}>
               <li onClick={() => {
                 setSelecionado(index)
+                setAbrir(false)
               }}
                 className={classNames({
                   [styles.navegacao__link]: true,

@@ -3,8 +3,14 @@ import styles from "./Controlador.module.scss";
 import Estado from "./Estado";
 import Forma from "./Forma";
 import Resetar from "./Resetar";
-import { CurrencyBitcoin } from "@mui/icons-material";
-export default function Controlador() {
+
+interface Props {
+  setDEntradas: React.Dispatch<React.SetStateAction<number>>,
+  setDSaidas: React.Dispatch<React.SetStateAction<number>>,
+  setDTotal: React.Dispatch<React.SetStateAction<number>>
+}
+
+export default function Controlador({setDEntradas, setDSaidas, setDTotal}: Props) {
   const [dadosInput, setDadosInput] = useState("");
   const [entradas, setEntradas] = useState([
     {
@@ -31,20 +37,25 @@ export default function Controlador() {
   const [estadoAtual, setEstadoAtual] = useState(estadoEntradas - estadoSaidas)
   useEffect(() => {
     setEstadoAtual(estadoEntradas - estadoSaidas)
+    setDTotal(estadoAtual)
     if(totalEntradas !== totalEntradas - 1) {
       setEstadoEntradas(totalEntradas)
+      setDEntradas(estadoEntradas)
       setEstadoAtual(estadoEntradas - estadoSaidas)
+      setDTotal(estadoAtual)
     }
     if(totalSaidas !== totalSaidas - 1) {
       setEstadoSaidas(totalSaidas)
+      setDSaidas(estadoSaidas)
       setEstadoAtual(estadoEntradas - estadoSaidas)
+      setDTotal(estadoAtual)
     }
     if (forma === 1) {
       setSelecionado([...entradas]);
     } else {
       setSelecionado([...saidas]);
     }
-  }, [forma, entradas, saidas, totalEntradas, totalSaidas, estadoEntradas, estadoSaidas]);
+  }, [forma, entradas, saidas, totalEntradas, totalSaidas, estadoEntradas, estadoSaidas, setDTotal, estadoAtual, setDEntradas, setDSaidas]);
   const classNames = require("classnames");
   let dataEnt: Array<any> = JSON.parse(localStorage.entradas) || [];
 
@@ -60,9 +71,10 @@ export default function Controlador() {
       <div className={styles.controlador}>
         <div className={styles.input__div}>
           <input
+            min={0}
             type='number'
             id="input"
-            onChange={(evento) => {
+            onChange={(evento: any) => {
               setDadosInput(evento.target.value);
               console.log(estadoEntradas, estadoSaidas);
             }}
@@ -70,23 +82,30 @@ export default function Controlador() {
           ></input>
           <button
             onClick={() => {
-              setDadosInput('')
-              setEstadoAtual(estadoEntradas - estadoSaidas)
-              if (forma === 1) {
-                setEstadoEntradas(estadoEntradas + Number(dadosInput))
-                setEntradas([...entradas, { quantia: String(dadosInput) }]);
-                window.localStorage.setItem(
-                  "entradas",
-                  JSON.stringify([...dataEnt, { quantia: Number(dadosInput) }])
-                );
+              if(Number(dadosInput) >= 0) {
+                setDadosInput('')
+                setEstadoAtual(estadoEntradas - estadoSaidas)
+                setDTotal(estadoAtual)
+                if (forma === 1) {
+                  setEstadoEntradas(estadoEntradas + Number(dadosInput))
+                  setDEntradas(estadoEntradas)
+                  setEntradas([...entradas, { quantia: String(dadosInput) }]);
+                  window.localStorage.setItem(
+                    "entradas",
+                    JSON.stringify([...dataEnt, { quantia: Number(dadosInput) }])
+                  );
+                } else {
+                  setEstadoSaidas(estadoSaidas + Number(dadosInput))
+                  setDSaidas(estadoSaidas)
+                  totalSaidas += Number(dadosInput)
+                  setSaidas([...saidas, { quantia: String(dadosInput) }]);
+                  window.localStorage.setItem(
+                    "saidas",
+                    JSON.stringify([...dataSai, { quantia: Number(dadosInput) }])
+                  );
+                }
               } else {
-                setEstadoSaidas(estadoSaidas + Number(dadosInput))
-                totalSaidas += Number(dadosInput)
-                setSaidas([...saidas, { quantia: String(dadosInput) }]);
-                window.localStorage.setItem(
-                  "saidas",
-                  JSON.stringify([...dataSai, { quantia: Number(dadosInput) }])
-                );
+                alert('O valor deve ser positivo')
               }
             }}
             disabled={dadosInput === "" ? true : false}
@@ -125,7 +144,7 @@ export default function Controlador() {
                   })}
                   key={index}
                 >
-                  R$ {Number(valor.quantia).toFixed(2)}
+                  R$ -{Number(valor.quantia).toFixed(2)}
                 </li>
               );
             }
