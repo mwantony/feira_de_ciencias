@@ -15,7 +15,7 @@ export default function Aplicativo() {
         </div>
       </div>
       <div className={styles.aplicativo__porqueusar}>
-        <h2 className={styles.porqueusar__titulo}>Por que usar nossas ferramentas?</h2>
+        <h2 className={styles.porqueusar__titulo}>Por que utilizar nossas ferramentas?</h2>
         <p className={styles.porqueusar__paragraph}>Tenha o controlador sempre em mãos com o nosso aplicativo :{']'}</p>
         <p className={styles.porqueusar__paragraph}>Caso queira ter um controle maior sobre o seu dinheiro, baixe nossa planilha!</p>
       </div>

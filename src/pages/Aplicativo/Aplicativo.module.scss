@@ -19,6 +19,7 @@
 
 .app__titulo {
   color: $surface;
+  font-weight: 400;
   text-shadow: 0px 2px 4px $text-shadow;
 }
 
@@ -42,6 +43,7 @@
 }
 
 .planilha__titulo {
+  font-weight: 400;
   color: $surface;
   text-shadow: 0px 2px 4px $text-shadow;
 }
