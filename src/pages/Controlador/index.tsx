@@ -77,11 +77,11 @@ export default function Controlador({
   ]);
   const classNames = require("classnames");
   let dataEnt: Array<any> = JSON.parse(localStorage.entradas) || [
-    { quantia: "", categoria: '' } 
+    { quantia: "", categoria: "" },
   ];
 
   let dataSai: Array<any> = JSON.parse(localStorage.saidas) || [
-    { quantia: "", categoria: '' },
+    { quantia: "", categoria: "" },
   ];
 
   return (
@@ -96,43 +96,60 @@ export default function Controlador({
       ></Resetar>
       <div className={styles.controlador}>
         <div className={styles.input__div}>
-          <div>
-            <input
-              min={0}
-              type="number"
-              id="input"
-              onChange={(evento: any) => {
-                setDadosInput(evento.target.value);
-                console.log(estadoEntradas, estadoSaidas);
-              }}
-              className={styles.controlador__input}
-            ></input>
-            <input
-              onChange={(evento) => {
-                setDadosInputCategoria(evento.target.value)
-              }}
-              maxLength={10}
-              type="text"
-              className={styles.controlador__input}
-            />
+          <div className={styles.inputs}>
+            <div>
+              <label id="label-valor" className={styles.label} htmlFor="valor">Valor: R$</label>
+              <input
+                id="valor"
+                min={0}
+                type="number"
+                onChange={(evento: any) => {
+                  setDadosInput(evento.target.value);
+                  console.log(estadoEntradas, estadoSaidas);
+                }}
+                className={styles.controlador__input}
+                value={dadosInput}
+              ></input>
+            </div>
+            <div>
+              <label id="label-categoria" className={styles.label} htmlFor="categoria">Categoria:</label>
+              <input
+                id="categoria"
+                onChange={(evento) => {
+                  setDadosInputCategoria(evento.target.value);
+                }}
+                maxLength={25}
+                type="text"
+                className={styles.controlador__input}
+                value={dadosInputCategoria}
+              />
+            </div>
           </div>
           <button
             onClick={() => {
-              if (Number(dadosInput) >= 0 && dadosInputCategoria !== '') {
+              if (Number(dadosInput) >= 0 && dadosInputCategoria !== "") {
                 console.log("ok");
                 setDadosInput("");
+                setDadosInputCategoria("");
                 setEstadoAtual(estadoEntradas - estadoSaidas);
                 setDTotal(estadoAtual);
                 if (forma === 1) {
                   setEstadoEntradas(estadoEntradas + Number(dadosInput));
                   setDEntradas(estadoEntradas);
-                  setEntradas([...entradas, { quantia: String(dadosInput), categoria: String(dadosInputCategoria) }]);
+                  setEntradas([
+                    ...entradas,
+                    {
+                      quantia: String(dadosInput),
+                      categoria: String(dadosInputCategoria),
+                    },
+                  ]);
                   window.localStorage.setItem(
                     "entradas",
                     JSON.stringify([
                       ...dataEnt,
-                      { quantia: Number(dadosInput),
-                        categoria: String(dadosInputCategoria)
+                      {
+                        quantia: Number(dadosInput),
+                        categoria: String(dadosInputCategoria),
                       },
                     ])
                   );
@@ -140,13 +157,20 @@ export default function Controlador({
                   setEstadoSaidas(estadoSaidas + Number(dadosInput));
                   setDSaidas(estadoSaidas);
                   totalSaidas += Number(dadosInput);
-                  setSaidas([...saidas, { quantia: String(dadosInput), categoria: String(dadosInputCategoria) }]);
+                  setSaidas([
+                    ...saidas,
+                    {
+                      quantia: String(dadosInput),
+                      categoria: String(dadosInputCategoria),
+                    },
+                  ]);
                   window.localStorage.setItem(
                     "saidas",
                     JSON.stringify([
                       ...dataSai,
-                      { quantia: Number(dadosInput),
-                        categoria: String(dadosInputCategoria)
+                      {
+                        quantia: Number(dadosInput),
+                        categoria: String(dadosInputCategoria),
                       },
                     ])
                   );
@@ -155,7 +179,9 @@ export default function Controlador({
                 alert("O valor deve ser positivo");
               }
             }}
-            disabled={dadosInput === "" || dadosInputCategoria === '' ? true : false}
+            disabled={
+              dadosInput === "" || dadosInputCategoria === "" ? true : false
+            }
             className={styles.controlador__botao}
           >
             Aplicar
@@ -173,11 +199,9 @@ export default function Controlador({
                     [styles["lista__quantia--entrada"]]: true,
                   })}
                   key={index}
-                > 
-                  <div>
-                    {valor.categoria}
-                  </div>
-                  R$ {Number(valor.quantia).toFixed(2)}
+                >
+                  <div className={styles.categoria}>{valor.categoria}</div>
+                  <div>R$ {Number(valor.quantia).toFixed(2)}</div>
                 </li>
               );
             }
@@ -194,7 +218,8 @@ export default function Controlador({
                   })}
                   key={index}
                 >
-                  R$ -{Number(valor.quantia).toFixed(2)}
+                  <div className={styles.categoria}>{valor.categoria}</div>
+                  <div>R$ -{Number(valor.quantia).toFixed(2)}</div>
                 </li>
               );
             }
