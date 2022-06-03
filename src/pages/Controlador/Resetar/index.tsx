@@ -5,14 +5,16 @@ interface Props {
   setEntradas: React.Dispatch<
     React.SetStateAction<
       {
-        quantia: string;
+        quantia: string,
+        categoria: string
       }[]
     >
   >;
   setSaidas: React.Dispatch<
     React.SetStateAction<
       {
-        quantia: string;
+        quantia: string,
+        categoria: string
       }[]
     >
   >;
@@ -34,8 +36,8 @@ export default function Resetar({
     if (deletar === true) {
       setEstadoEntradas(0);
       setEstadoSaidas(0);
-      setEntradas([{ quantia: "" }]);
-      setSaidas([{ quantia: "" }]);
+      setEntradas([{ quantia: "", categoria: '' }]);
+      setSaidas([{ quantia: "", categoria: '' }]);
       window.localStorage.removeItem("entradas");
       window.localStorage.removeItem("saidas");
     }
@@ -56,8 +58,8 @@ export default function Resetar({
           if (deletar === true) {
             setEstadoEntradas(0);
             setEstadoSaidas(0);
-            setEntradas([{ quantia: "" }]);
-            setSaidas([{ quantia: "" }]);
+            setEntradas([{ quantia: "", categoria: '' }]);
+            setSaidas([{ quantia: "", categoria: '' }]);
             window.localStorage.removeItem("entradas");
             window.localStorage.removeItem("saidas");
           }
