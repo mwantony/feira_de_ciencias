@@ -4,7 +4,7 @@
 .input__div {
   display: flex;
   margin: 4rem auto 2rem auto;
-  width: 65%;
+  width: 70%;
   padding-left: .2rem;
   align-items: flex-start;
 }
@@ -28,7 +28,7 @@
   &:disabled {
     opacity: .6;
   }
-  width: 40%;
+  width: 45%;
   z-index: 0;
   margin: 0rem auto;
   display: block;
@@ -51,7 +51,7 @@
   padding: 0.5rem;
   background-color: $input;
   text-align: center;
-  width: 80%;
+  width: 90%;
 }
 
 
