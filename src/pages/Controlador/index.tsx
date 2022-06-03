@@ -98,27 +98,36 @@ export default function Controlador({
         <div className={styles.input__div}>
           <div className={styles.inputs}>
             <div>
-              <label id="label-valor" className={styles.label} htmlFor="valor">Valor: R$</label>
+              <label id="label-valor" className={styles.label} htmlFor="valor">
+                Valor: R$
+              </label>
               <input
                 id="valor"
                 min={0}
-                type="number"
+                type="text"
                 onChange={(evento: any) => {
                   setDadosInput(evento.target.value);
                   console.log(estadoEntradas, estadoSaidas);
                 }}
                 className={styles.controlador__input}
                 value={dadosInput}
+                maxLength={5}
               ></input>
             </div>
             <div>
-              <label id="label-categoria" className={styles.label} htmlFor="categoria">Categoria:</label>
+              <label
+                id="label-categoria"
+                className={styles.label}
+                htmlFor="categoria"
+              >
+                Categoria:
+              </label>
               <input
                 id="categoria"
                 onChange={(evento) => {
                   setDadosInputCategoria(evento.target.value);
                 }}
-                maxLength={25}
+                maxLength={20}
                 type="text"
                 className={styles.controlador__input}
                 value={dadosInputCategoria}
@@ -200,8 +209,10 @@ export default function Controlador({
                   })}
                   key={index}
                 >
-                  <div className={styles.categoria}>{valor.categoria}</div>
-                  <div>R$ {Number(valor.quantia).toFixed(2)}</div>
+                  <p className={styles.categoria}>{valor.categoria}</p>
+                  <div className={styles.valor}>
+                    R$ {Number(valor.quantia).toFixed(2)}
+                  </div>
                 </li>
               );
             }
@@ -218,8 +229,10 @@ export default function Controlador({
                   })}
                   key={index}
                 >
-                  <div className={styles.categoria}>{valor.categoria}</div>
-                  <div>R$ -{Number(valor.quantia).toFixed(2)}</div>
+                  <p className={styles.categoria}>{valor.categoria}</p>
+                  <div className={styles.valor}>
+                    R$ -{Number(valor.quantia).toFixed(2)}
+                  </div>
                 </li>
               );
             }

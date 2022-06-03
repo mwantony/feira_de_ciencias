@@ -40,6 +40,7 @@ export default function Resetar({
       setSaidas([{ quantia: "", categoria: '' }]);
       window.localStorage.removeItem("entradas");
       window.localStorage.removeItem("saidas");
+      setDeletar(false)
     }
   }, [setEstadoEntradas, setEstadoSaidas, setEntradas, setSaidas, deletar]);
   return (
