@@ -3,6 +3,7 @@ import styles from "./Controlador.module.scss";
 import Estado from "./Estado";
 import Forma from "./Forma";
 import Resetar from "./Resetar";
+import ValidacaoValor from "./ValidacaoValor";
 
 interface Props {
   setDEntradas: React.Dispatch<React.SetStateAction<number>>;
@@ -83,9 +84,10 @@ export default function Controlador({
   let dataSai: Array<any> = JSON.parse(localStorage.saidas) || [
     { quantia: "", categoria: "" },
   ];
-
+  const [aparecerValidacao, setAparecerValidacao] = useState(false)
   return (
     <section>
+      <ValidacaoValor setAparecerValidacao={setAparecerValidacao} aparecerValidacao={aparecerValidacao}></ValidacaoValor>
       <Estado estado={estadoAtual}></Estado>
       <Forma forma={forma} setForma={setForma}></Forma>
       <Resetar
@@ -185,7 +187,7 @@ export default function Controlador({
                   );
                 }
               } else {
-                alert("O valor deve ser positivo");
+                setAparecerValidacao(true)
               }
             }}
             disabled={
