@@ -29,8 +29,8 @@ export default function ValidacaoValor({
           O valor da operação deve ser um número positivo!
         </div>
         <div className={classNames({
-          [styles.popup__opcoes]: true,
-          [styles['popup__opcoes--aparecer']]: aparecerValidacao === true ? true : false
+          [styles.popup__opcao]: true,
+          [styles['popup__opcao--aparecer']]: aparecerValidacao === true ? true : false
         })}>
 
           <button
@@ -38,8 +38,8 @@ export default function ValidacaoValor({
               setAparecerValidacao(false);
             }}
             className={classNames({
-              [styles.opcoes__sim]: true,
-              [styles['opcoes__sim--aparecer']]: aparecerValidacao === true ? true : false
+              [styles.opcao__ok]: true,
+              [styles['opcao__ok--aparecer']]: aparecerValidacao === true ? true : false
             })}
           >
             Ok
