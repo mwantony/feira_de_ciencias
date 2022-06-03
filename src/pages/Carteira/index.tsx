@@ -21,7 +21,7 @@ export default function Carteira({ entradas, saidas, total }: Props) {
         <p
           className={classNames({
             [styles["carteira__entradas--currency"]]: true,
-            [styles.positivo]: true
+            [styles.positivo]: true,
           })}
         >
           R$ {entradas.toFixed(2)}
@@ -34,18 +34,18 @@ export default function Carteira({ entradas, saidas, total }: Props) {
             [styles["carteira__opcao"]]: true,
           })}
         >
-          Total de saídas: 
+          Total de saídas:
         </p>
         <p
           className={classNames({
             [styles["carteira__saidas--currency"]]: true,
-            [styles.negativo]: true
+            [styles.negativo]: true,
           })}
         >
           R$ -{saidas.toFixed(2)}
         </p>
       </div>
-      <div className={styles['carteira__div--lucro']}>
+      <div className={styles["carteira__div--lucro"]}>
         <p
           className={classNames({
             [styles["carteira__total"]]: true,
@@ -53,11 +53,13 @@ export default function Carteira({ entradas, saidas, total }: Props) {
         >
           Lucro ou diferença:
         </p>
-        <p className={classNames({
-          [styles.carteira__total]: true,
-          [styles.positivo]: total > 0 || total === 0 ? true : false,
-          [styles.negativo]: total < 0 ? true : false
-        })}>
+        <p
+          className={classNames({
+            [styles.carteira__total]: true,
+            [styles.positivo]: total > 0 || total === 0 ? true : false,
+            [styles.negativo]: total < 0 ? true : false,
+          })}
+        >
           R$ {total.toFixed(2)}
         </p>
       </div>

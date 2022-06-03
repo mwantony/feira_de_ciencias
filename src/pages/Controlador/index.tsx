@@ -84,10 +84,13 @@ export default function Controlador({
   let dataSai: Array<any> = JSON.parse(localStorage.saidas) || [
     { quantia: "", categoria: "" },
   ];
-  const [aparecerValidacao, setAparecerValidacao] = useState(false)
+  const [aparecerValidacao, setAparecerValidacao] = useState(false);
   return (
     <section>
-      <ValidacaoValor setAparecerValidacao={setAparecerValidacao} aparecerValidacao={aparecerValidacao}></ValidacaoValor>
+      <ValidacaoValor
+        setAparecerValidacao={setAparecerValidacao}
+        aparecerValidacao={aparecerValidacao}
+      ></ValidacaoValor>
       <Estado estado={estadoAtual}></Estado>
       <Forma forma={forma} setForma={setForma}></Forma>
       <Resetar
@@ -187,7 +190,7 @@ export default function Controlador({
                   );
                 }
               } else {
-                setAparecerValidacao(true)
+                setAparecerValidacao(true);
               }
             }}
             disabled={
@@ -198,7 +201,7 @@ export default function Controlador({
             Aplicar
           </button>
         </div>
-        <ul className={styles.controlador__lista}>
+        <ul className={styles.lista}>
           {dataEnt.map((valor, index) => {
             if (valor.quantia) {
               totalEntradas += Number(valor.quantia);

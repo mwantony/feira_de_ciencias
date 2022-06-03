@@ -1,6 +1,6 @@
-@import 'styles/_variaveis.scss';
+@import "styles/_variaveis.scss";
 
-.popup__div {
+.popup {
   position: fixed;
   width: 100%;
   top: 0;
@@ -13,60 +13,49 @@
   transition: 500ms ease-in-out;
   visibility: hidden;
   background-color: transparent;
+
+  &__content {
+    position: absolute;
+    background-color: transparent;
+    border-radius: 10px;
+    visibility: hidden;
+    transition: 500ms ease-in-out;
+    padding: 1.5rem;
+    width: 60%;
+    transform: translateY(400%);
+  }
+
+  &__content--aparecer {
+    z-index: 10;
+    border-radius: 10px;
+    transform: translateY(0%);
+    box-shadow: 0px 2px 4px $text-shadow;
+    background-color: $tema-principal;
+    visibility: visible;
+    z-index: 10;
+  }
+
+  &__opcoes {
+    display: flex;
+    color: transparent;
+    margin-top: 1rem;
+    justify-content: space-evenly;
+  }
+
+  &__opcoes--aparecer {
+    color: $surface;
+  }
 }
 
-.popup__div--aparecer {
+.popup--aparecer {
   background-color: $text-shadow;
   visibility: visible;
-
 }
 
-.popup__content {
-  position: absolute;
-  background-color: transparent;
-  border-radius: 10px;
-  visibility: hidden;
-  transition: 500ms ease-in-out;
-  padding: 1.5rem;
-  width: 60%;
-  transform: translateY(400%);
-}
-
-.popup__content--aparecer {
-  z-index: 10;
-  border-radius: 10px;
-  transform: translateY(0%);
-  box-shadow: 0px 2px 4px $text-shadow;
-  background-color: $tema-principal;
-  visibility: visible;
-  z-index: 10;
-}
-
-.content__paragraph {
-  color: transparent;
-  transition: 500ms ease-in-out;
-}
-
-.content__paragraph--aparecer {
-  color: $surface;
-  text-shadow: 0px 2px 8px $tema-principal;
-}
-
-.popup__opcoes {
-  display: flex;
-  color: transparent;
-  margin-top: 1rem;
-  justify-content: space-evenly;
-}
-
-.popup__opcoes--aparecer {
-
-  color: $surface;
-}
-
-.opcoes__nao, .opcoes__sim {
+.opcoes__nao,
+.opcoes__sim {
   border: none;
-  padding: .6rem 2rem;
+  padding: 0.6rem 2rem;
   color: transparent;
   font-weight: 800;
   transition: 500ms ease-in-out;
@@ -75,7 +64,8 @@
   border-radius: 2px;
 }
 
-.opcoes__nao--aparecer, .opcoes__sim--aparecer {
+.opcoes__nao--aparecer,
+.opcoes__sim--aparecer {
   box-shadow: 0px 2px 4px $text-shadow;
   text-shadow: 0px 2px 4px $text-shadow;
 }
@@ -88,4 +78,13 @@
 .opcoes__sim--aparecer {
   background-color: $surface;
   color: $tema-principal;
+}
+
+.content__paragraph {
+  color: transparent;
+  transition: 500ms ease-in-out;
+}
+.content__paragraph--aparecer {
+  color: $surface;
+  text-shadow: 0px 2px 8px $tema-principal;
 }

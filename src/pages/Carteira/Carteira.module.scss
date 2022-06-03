@@ -1,47 +1,50 @@
-@import 'styles/_variaveis.scss';
+@import "styles/_variaveis.scss";
 
-.carteira__div {
-  display: flex;
-  height: 100px;
-  width: 90%;
-  justify-content: space-evenly;
-  align-items: center;
-}
+.carteira {
+  &__div {
+    display: flex;
+    height: 100px;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 
-.carteira__div:first-child {
-  margin-top: 2rem;
-}
+  &__div:first-child {
+    margin-top: 2rem;
+  }
 
-.carteira__div--lucro {
-  display: block;
-  margin: 3rem auto;
-  text-align: center;
-  font-size: 25px;
-  width: 100%;
-  text-shadow: 0px 2px 4px $text-shadow;
-  color: $surface;
-}
+  &__div--lucro {
+    display: block;
+    margin: 3rem auto;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    text-shadow: 0px 2px 4px $text-shadow;
+    color: $surface;
+  }
 
+  &__opcao {
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 0px 2px 4px $text-shadow;
+    color: $surface;
+    width: 40%;
+    margin-left: 1rem;
+  }
 
-.carteira__opcao {
-  font-size: 25px;
-  text-align: center;
-  text-shadow: 0px 2px 4px $text-shadow;
-  color: $surface;
-  width: 40%;
-  margin-left: 1rem;
-}
-.carteira__saidas {
-  width: 40%;
-}
+  &__saidas {
+    width: 40%;
+  }
 
-.carteira__saidas--currency, .carteira__entradas--currency {
-  font-size: 25px;
-  text-shadow: 0px 2px 4px $text-shadow;
-}
+  &__saidas--currency,
+  &__entradas--currency {
+    font-size: 25px;
+    text-shadow: 0px 2px 4px $text-shadow;
+  }
 
-.carteira__total {
-  font-size: 30px;
+  &__total {
+    font-size: 30px;
+  }
 }
 
 .negativo {

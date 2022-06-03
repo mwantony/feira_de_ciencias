@@ -16,29 +16,39 @@ export default function ConfirmarReset({
     <div
       onClick={() => setAparecer(false)}
       className={classNames({
-        [styles.popup__div]: true,
-        [styles["popup__div--aparecer"]]: aparecer === true ? true : false,
+        [styles.popup]: true,
+        [styles["popup--aparecer"]]: aparecer === true ? true : false,
       })}
     >
-      <div className={classNames({
-        [styles.popup__content]: true,
-        [styles['popup__content--aparecer']]: aparecer === true ? true : false
-      })}>
-        <div className={classNames({
-          [styles.content__paragraph]: true,
-          [styles['content__paragraph--aparecer']]: aparecer === true ? true : false
-        })}>
+      <div
+        className={classNames({
+          [styles.popup__content]: true,
+          [styles["popup__content--aparecer"]]:
+            aparecer === true ? true : false,
+        })}
+      >
+        <div
+          className={classNames({
+            [styles.content__paragraph]: true,
+            [styles["content__paragraph--aparecer"]]:
+              aparecer === true ? true : false,
+          })}
+        >
           Tem certeza que deseja resetar os dados da aplicação?
         </div>
-        <div className={classNames({
-          [styles.popup__opcoes]: true,
-          [styles['popup__opcoes--aparecer']]: aparecer === true ? true : false
-        })}>
+        <div
+          className={classNames({
+            [styles.popup__opcoes]: true,
+            [styles["popup__opcoes--aparecer"]]:
+              aparecer === true ? true : false,
+          })}
+        >
           <button
             onClick={() => setAparecer(false)}
             className={classNames({
               [styles.opcoes__nao]: true,
-              [styles['opcoes__nao--aparecer']]: aparecer === true ? true : false
+              [styles["opcoes__nao--aparecer"]]:
+                aparecer === true ? true : false,
             })}
           >
             Não
@@ -50,7 +60,8 @@ export default function ConfirmarReset({
             }}
             className={classNames({
               [styles.opcoes__sim]: true,
-              [styles['opcoes__sim--aparecer']]: aparecer === true ? true : false
+              [styles["opcoes__sim--aparecer"]]:
+                aparecer === true ? true : false,
             })}
           >
             Sim

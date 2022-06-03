@@ -1,11 +1,10 @@
 @import "styles/_variaveis.scss";
 
-
 .input__div {
   display: flex;
   margin: 4rem auto 2rem auto;
   width: 70%;
-  padding-left: .2rem;
+  padding-left: 0.2rem;
   align-items: flex-start;
 }
 
@@ -24,38 +23,38 @@
   text-shadow: 0px 2px 4px $tema-principal;
 }
 
-.controlador__botao {
-  &:disabled {
-    opacity: .6;
+.controlador {
+  &__botao {
+    &:disabled {
+      opacity: 0.6;
+    }
+    width: 45%;
+    z-index: 0;
+    margin: 0rem auto;
+    display: block;
+    background: $surface;
+    text-shadow: 0px 2px 4px $text-shadow;
+    font-weight: 800;
+    padding: 0.5rem;
+    border: none;
+    color: $tema-principal;
+    box-shadow: 0px 2px 6px $text-shadow;
+    border-radius: 2px;
   }
-  width: 45%;
-  z-index: 0;
-  margin: 0rem auto;
-  display: block;
-  background: $surface;
-  text-shadow: 0px 2px 4px $text-shadow;
-  font-weight: 800;
-  padding: .5rem;
-  border: none;
-  color: $tema-principal;
-  box-shadow: 0px 2px 6px $text-shadow;
-  border-radius: 2px;
+  &__input {
+    border-radius: 2px;
+    box-shadow: 0px 2px 6px $text-shadow;
+    margin: 0.5rem 0 0.5rem 0;
+    color: $surface;
+    border: none;
+    padding: 0.5rem;
+    background-color: $input;
+    text-align: center;
+    width: 90%;
+  }
 }
 
-.controlador__input {
-  border-radius: 2px;
-  box-shadow: 0px 2px 6px $text-shadow;
-  margin: 0.5rem 0 0.5rem 0;
-  color: $surface;
-  border: none;
-  padding: 0.5rem;
-  background-color: $input;
-  text-align: center;
-  width: 90%;
-}
-
-
-.controlador__lista {
+.lista {
   display: flex;
   padding: 0 0 1rem 0;
   flex-direction: column;
@@ -63,31 +62,28 @@
   margin: 0 auto;
   flex-wrap: wrap;
   list-style: none;
-}
+  &__quantia {
+    background-color: $tema-principal;
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    margin: 0.6rem 0.6rem 0.6rem 0;
+    display: flex;
+    height: 80px;
+    display: flex;
+    font-size: 20px;
+    text-shadow: 0px 2px 4px $text-shadow;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 3px 10px $text-shadow;
+  }
+  &__quantia--entrada {
+    color: $positivo;
+  }
 
-.lista__quantia {
-  background-color: $tema-principal;
-  width: calc(100% - 2rem);
-  padding: 1rem;
-  margin: .6rem .6rem .6rem 0;
-  display: flex;
-  height: 80px;
-  display: flex;
-  font-size: 20px;
-  text-shadow: 0px 2px 4px $text-shadow;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 15px;
-  box-shadow: 0px 3px 10px $text-shadow;
-}
-
-.lista__quantia--entrada {
-  color: $positivo;
-}
-
-.lista__quantia--saida {
-  color: $negativo;
-
+  &__quantia--saida {
+    color: $negativo;
+  }
 }
 
 .categoria {

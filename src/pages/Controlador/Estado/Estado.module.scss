@@ -1,13 +1,12 @@
-@import 'styles/_variaveis.scss';
+@import "styles/_variaveis.scss";
 
 .estado {
   position: absolute;
-  top: -.4rem;
+  top: -0.4rem;
   margin-left: 1rem;
 }
 
 .controlador__saldo {
-
   font-size: 30px;
   text-shadow: 0px 2px 4px $text-shadow;
 }

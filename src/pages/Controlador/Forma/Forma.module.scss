@@ -1,41 +1,40 @@
-@import 'styles/_variaveis.scss';
+@import "styles/_variaveis.scss";
 
+.aba {
+  &__lista {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    padding: 0;
+    list-style: none;
+    margin: 3rem auto 1.5rem;
+  }
 
-.aba__lista {
-  display: flex;
-  justify-content: space-evenly;
-  width: 50%;
-  padding: 0;
-  list-style: none;
-  margin: 3rem auto 1.5rem;
-}
-
-.aba__forma {
-  text-decoration: none;
-  font-weight: 800;
-  margin-top: .3rem;
-  margin: .6rem .6rem .6rem 0;
-  padding-left: .2rem;
-  font-size: 20px;
-  text-shadow: 0px 2px 4px $text-shadow;
-
-  &:hover {
-    cursor: pointer;
+  &__forma {
+    text-decoration: none;
+    font-weight: 800;
+    margin-top: 0.3rem;
+    margin: 0.6rem 0.6rem 0.6rem 0;
+    padding-left: 0.2rem;
+    font-size: 20px;
+    text-shadow: 0px 2px 4px $text-shadow;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
-
 .aba__forma--entradas {
-  color: #008B0E;
+  color: #008b0e;
 }
 
 .aba__forma--saidas {
-  color: #CC0000;
+  color: #cc0000;
 }
 
 .aba__forma--ativo-entrada {
-  border-top: 6px #008B0E solid;
+  border-top: 6px #008b0e solid;
 }
 
 .aba__forma--ativo-saida {
-  border-top: 6px #CC0000 solid;
+  border-top: 6px #cc0000 solid;
 }

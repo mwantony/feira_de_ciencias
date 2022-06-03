@@ -1,28 +1,28 @@
-import styles from './Resetar.module.scss'
-import {useState, useEffect} from 'react'
-import ConfirmarReset from '../ConfirmarReset';
+import styles from "./Resetar.module.scss";
+import { useState, useEffect } from "react";
+import ConfirmarReset from "../ConfirmarReset";
 interface Props {
   setEntradas: React.Dispatch<
     React.SetStateAction<
       {
-        quantia: string,
-        categoria: string
+        quantia: string;
+        categoria: string;
       }[]
     >
   >;
   setSaidas: React.Dispatch<
     React.SetStateAction<
       {
-        quantia: string,
-        categoria: string
+        quantia: string;
+        categoria: string;
       }[]
     >
   >;
-  setEstadoEntradas: React.Dispatch<React.SetStateAction<number>>
-  setEstadoSaidas: React.Dispatch<React.SetStateAction<number>>
+  setEstadoEntradas: React.Dispatch<React.SetStateAction<number>>;
+  setEstadoSaidas: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const classNames = require('classnames')
+const classNames = require("classnames");
 
 export default function Resetar({
   setEntradas,
@@ -36,11 +36,11 @@ export default function Resetar({
     if (deletar === true) {
       setEstadoEntradas(0);
       setEstadoSaidas(0);
-      setEntradas([{ quantia: "", categoria: '' }]);
-      setSaidas([{ quantia: "", categoria: '' }]);
+      setEntradas([{ quantia: "", categoria: "" }]);
+      setSaidas([{ quantia: "", categoria: "" }]);
       window.localStorage.removeItem("entradas");
       window.localStorage.removeItem("saidas");
-      setDeletar(false)
+      setDeletar(false);
     }
   }, [setEstadoEntradas, setEstadoSaidas, setEntradas, setSaidas, deletar]);
   return (
@@ -56,14 +56,6 @@ export default function Resetar({
         })}
         onClick={() => {
           setAparecer(true);
-          if (deletar === true) {
-            setEstadoEntradas(0);
-            setEstadoSaidas(0);
-            setEntradas([{ quantia: "", categoria: '' }]);
-            setSaidas([{ quantia: "", categoria: '' }]);
-            window.localStorage.removeItem("entradas");
-            window.localStorage.removeItem("saidas");
-          }
         }}
       >
         Resetar
