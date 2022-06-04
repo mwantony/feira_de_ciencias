@@ -8,8 +8,11 @@ import PaginaPadrao from "./components/PaginaPadrao";
 import Controlador from "./pages/Controlador";
 
 export default function AppRouter() {
-  const [selecionado, setSelecionado] = useState(0);
+  const [selecionado, setSelecionado] = useState(-1);
   useEffect(() => {
+    if (window.location.href === 'http://localhost:3000/') {
+      setSelecionado(0)
+    }
     if (window.location.href === "http://localhost:3000/carteira") {
       setSelecionado(1);
     }
@@ -55,7 +58,7 @@ export default function AppRouter() {
               element={<Aplicativo></Aplicativo>}
             ></Route>
           </Route>
-          <Route path="*" element={<NotFound></NotFound>}></Route>
+          <Route path="*" element={<NotFound setSelecionado={setSelecionado}></NotFound>}></Route>
         </Routes>
       </main>
     </BrowserRouter>

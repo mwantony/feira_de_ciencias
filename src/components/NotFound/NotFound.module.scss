@@ -34,6 +34,11 @@
     background-color: $surface;
   }
 
+  &__link {
+    color: $tema-principal;
+    text-decoration: none;
+  }
+
   &__nuvem1,
   &__nuvem2,
   &__nuvem3 {
@@ -42,33 +47,33 @@
   }
   &__nuvem1 {
     top: 20%;
-    left: 50%;
+    left: 90%;
     width: 5%;
-    animation: nuvem1 60s infinite ease-in-out alternate;  }
+    animation: nuvem1 65s infinite ease-in-out alternate;  }
   &__nuvem2 {
     top: 30%;
-    left: -3rem;
-    animation: nuvem2 40s infinite ease-in-out alternate;
+    left: 50%;
+    animation: nuvem2 65s infinite ease-in-out alternate;
   }
   &__nuvem3 {
     top: 40%;
     right: -2rem;
-    animation: nuvem3 50s infinite ease-in-out alternate;
+    animation: nuvem3 65s infinite ease-in-out alternate;
   }
 }
 @keyframes nuvem1 {
   to {
-    transform: translateX(-40vw);
+    transform: translateX(-95vw);
   }
 }
 @keyframes nuvem2 {
   to {
-    transform: translateX(80vw);
+    transform: translateX(-140vw);
   }
 }
 @keyframes nuvem3 {
   to {
-    transform: translateX(-60vw);
+    transform: translateX(-120vw);
   }
 }
 

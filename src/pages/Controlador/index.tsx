@@ -196,7 +196,9 @@ export default function Controlador({
             disabled={
               dadosInput === "" || dadosInputCategoria === "" ? true : false
             }
-            className={styles.controlador__botao}
+            className={classNames({
+              [styles.controlador__botao]: true,
+            })}
           >
             Aplicar
           </button>
