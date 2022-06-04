@@ -1,4 +1,5 @@
 import Cabecalho from "components/Cabecalho";
+import NotFound from "components/NotFound";
 import Aplicativo from "pages/Aplicativo";
 import Carteira from "pages/Carteira";
 import { useEffect, useState } from "react";
@@ -54,6 +55,7 @@ export default function AppRouter() {
               element={<Aplicativo></Aplicativo>}
             ></Route>
           </Route>
+          <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       </main>
     </BrowserRouter>
