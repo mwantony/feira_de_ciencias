@@ -18,8 +18,10 @@ interface Props {
       }[]
     >
   >;
-  setEstadoEntradas: React.Dispatch<React.SetStateAction<number>>;
-  setEstadoSaidas: React.Dispatch<React.SetStateAction<number>>;
+  setEstadoEntradas: React.Dispatch<React.SetStateAction<number>>,
+  setEstadoSaidas: React.Dispatch<React.SetStateAction<number>>,
+  aparecer: boolean,
+  setAparecer: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const classNames = require("classnames");
@@ -27,11 +29,12 @@ const classNames = require("classnames");
 export default function Resetar({
   setEntradas,
   setSaidas,
+  aparecer,
+  setAparecer,
   setEstadoEntradas,
   setEstadoSaidas,
 }: Props) {
   const [deletar, setDeletar] = useState(false);
-  const [aparecer, setAparecer] = useState(false);
   useEffect(() => {
     if (deletar === true) {
       setEstadoEntradas(0);

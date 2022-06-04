@@ -17,6 +17,7 @@ export default function Controlador({
   setDTotal,
 }: Props) {
   const [dadosInput, setDadosInput] = useState("");
+  const [aparecer, setAparecer] = useState(false);
   const [dadosInputCategoria, setDadosInputCategoria] = useState("");
   const [entradas, setEntradas] = useState([
     {
@@ -94,6 +95,8 @@ export default function Controlador({
       <Estado estado={estadoAtual}></Estado>
       <Forma forma={forma} setForma={setForma}></Forma>
       <Resetar
+        aparecer={aparecer}
+        setAparecer={setAparecer}
         setEstadoEntradas={setEstadoEntradas}
         setEstadoSaidas={setEstadoSaidas}
         setEntradas={setEntradas}
@@ -198,6 +201,7 @@ export default function Controlador({
             }
             className={classNames({
               [styles.controlador__botao]: true,
+              [styles['controlador__botao--popupon']]: aparecer === true ? true : false
             })}
           >
             Aplicar
