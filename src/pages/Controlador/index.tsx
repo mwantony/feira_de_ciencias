@@ -4,6 +4,7 @@ import Estado from "./Estado";
 import Forma from "./Forma";
 import Resetar from "./Resetar";
 import ValidacaoValor from "./ValidacaoValor";
+import NumberFormat from 'react-number-format'
 
 interface Props {
   setDEntradas: React.Dispatch<React.SetStateAction<number>>;
@@ -109,18 +110,19 @@ export default function Controlador({
               <label id="label-valor" className={styles.label} htmlFor="valor">
                 Valor: R$
               </label>
-              <input
+              <NumberFormat
                 id="valor"
                 min={0}
-                type="text"
+                prefix='R$'
+                thousandSeparator={true}
                 onChange={(evento: any) => {
                   setDadosInput(evento.target.value);
                   console.log(estadoEntradas, estadoSaidas);
                 }}
                 className={styles.controlador__input}
                 value={dadosInput}
-                maxLength={5}
-              ></input>
+                maxLength={7}
+              ></NumberFormat>
             </div>
             <div>
               <label
