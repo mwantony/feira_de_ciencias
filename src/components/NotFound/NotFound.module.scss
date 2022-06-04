@@ -49,16 +49,16 @@
     top: 20%;
     left: 90%;
     width: 5%;
-    animation: nuvem1 65s infinite ease-in-out alternate;  }
+    animation: nuvem1 70s infinite ease-in-out alternate;  }
   &__nuvem2 {
     top: 30%;
     left: 50%;
-    animation: nuvem2 65s infinite ease-in-out alternate;
+    animation: nuvem2 70s infinite ease-in-out alternate;
   }
   &__nuvem3 {
     top: 40%;
     right: -2rem;
-    animation: nuvem3 65s infinite ease-in-out alternate;
+    animation: nuvem3 70s infinite ease-in-out alternate;
   }
 }
 @keyframes nuvem1 {
