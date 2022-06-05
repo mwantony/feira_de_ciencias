@@ -28,13 +28,14 @@
   position: absolute;
   opacity: 0;
   z-index: 4;
-  transform: translate(-70%, 50%);
+  transform: translate(-90%, 50%);
   border-radius: 20px;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   transition: 500ms ease-in-out;
   font-size: 25px;
   width: 60%;
+  border-radius: 30px;
 
   &__positivo {
     color: $positivo;
@@ -54,7 +55,6 @@
   background-color: $tema-principal;
   z-index: 4;
   transform: translate(5%, 50%);
-  border-radius: 20px;
   text-align: center;
   text-shadow: 0px 2px 4px $text-shadow;
   box-shadow: 0px 2px 8px $text-shadow;
