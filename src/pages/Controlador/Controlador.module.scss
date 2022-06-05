@@ -1,5 +1,10 @@
 @import "styles/_variaveis.scss";
 
+.section--controlador {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .input__div {
   display: flex;
   margin: 4rem auto 2rem auto;
@@ -106,3 +111,32 @@
 .none {
   display: none;
 }
+
+@media(min-width: $media) {
+  .controlador {
+    &__input {
+      width: 100%;
+    }
+
+    &__botao {
+      width: 30%;
+    }
+  }
+
+  .inputs {
+    width: 60%;
+  }
+  .section--controlador {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .lista {
+    &__quantia {
+      height: 60px;
+    }
+  }
+  .valor, .categoria {
+    font-size: 18px;
+  }
+}
+

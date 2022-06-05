@@ -87,7 +87,7 @@ export default function Controlador({
   ];
   const [aparecerValidacao, setAparecerValidacao] = useState(false);
   return (
-    <section>
+    <section className={styles['section--controlador']}>
       <ValidacaoValor
         setAparecerValidacao={setAparecerValidacao}
         aparecerValidacao={aparecerValidacao}

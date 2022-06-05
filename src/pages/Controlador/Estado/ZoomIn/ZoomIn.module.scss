@@ -60,3 +60,16 @@
   box-shadow: 0px 2px 8px $text-shadow;
 
 }
+@media(min-width: $media) {
+  .zoomin {
+    position: absolute;
+    left: 0;
+  }
+  .popupzoom {
+    transform: translate(-120%, 50%);
+    width: 30%;
+  }
+  .popupzoom--aparecer {
+    transform: translate(-40%, 50%);
+  }
+}

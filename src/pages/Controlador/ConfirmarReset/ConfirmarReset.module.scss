@@ -88,3 +88,11 @@
   color: $surface;
   text-shadow: 0px 2px 8px $tema-principal;
 }
+
+@media(min-width: $media) {
+  .popup {
+    &__content {
+      width: 40%;
+    }
+  }
+}

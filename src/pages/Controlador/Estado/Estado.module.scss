@@ -18,3 +18,9 @@
 .controlador__saldo--negativo {
   color: $negativo;
 }
+
+@media(min-width: $media) {
+  .estado {
+    margin-left: -18vw;
+  }
+}

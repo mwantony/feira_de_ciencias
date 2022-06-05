@@ -49,7 +49,8 @@
     top: 20%;
     left: 90%;
     width: 5%;
-    animation: nuvem1 70s infinite ease-in-out alternate;  }
+    animation: nuvem1 70s infinite ease-in-out alternate;
+  }
   &__nuvem2 {
     top: 30%;
     left: 50%;
@@ -77,4 +78,16 @@
   }
 }
 
-
+@media (min-width: $media) {
+  .notfound {
+    &__nuvem1 {
+      animation: nuvem1 100s infinite ease-in-out alternate;
+    }
+    &__nuvem2 {
+      animation: nuvem2 100s infinite ease-in-out alternate;
+    }
+    &__nuvem3 {
+      animation: nuvem3 100s infinite ease-in-out alternate;
+    }
+  }
+}

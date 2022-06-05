@@ -77,3 +77,11 @@
   background-color: $surface;
   color: $tema-principal;
 }
+
+@media(min-width: $media) {
+  .popup {
+    &__content {
+      width: 40%;
+    }
+  }
+}
