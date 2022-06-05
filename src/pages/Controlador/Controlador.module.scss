@@ -116,10 +116,12 @@
   .controlador {
     &__input {
       width: 100%;
+      border-radius: 3px;
     }
 
     &__botao {
       width: 30%;
+      border-radius: 3px;
     }
   }
 
