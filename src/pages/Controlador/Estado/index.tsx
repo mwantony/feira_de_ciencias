@@ -1,16 +1,23 @@
 import classNames from "classnames";
 import { useState } from "react";
 import styles from "./Estado.module.scss";
-import ZoomIn from './ZoomIn'
+import ZoomIn from "./ZoomIn";
 
 export default function Estado({ estado }: { estado: number }) {
-  const [saldoAparecer, setSaldoAparecer] = useState(false)
+  const [saldoAparecer, setSaldoAparecer] = useState(false);
   return (
     <>
-      <ZoomIn estado={estado} saldoAparecer={saldoAparecer} setSaldoAparecer={setSaldoAparecer}></ZoomIn>
-      <div onClick={() => {
-        setSaldoAparecer(true)
-      }} className={styles.estado}>
+      <ZoomIn
+        estado={estado}
+        saldoAparecer={saldoAparecer}
+        setSaldoAparecer={setSaldoAparecer}
+      ></ZoomIn>
+      <div
+        onClick={() => {
+          setSaldoAparecer(true);
+        }}
+        className={styles.estado}
+      >
         <h2
           className={classNames({
             [styles.controlador__saldo]: true,
