@@ -1,0 +1,1 @@
+// qr code generator: https://www.qrcode-tiger.com/

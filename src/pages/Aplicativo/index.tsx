@@ -1,11 +1,14 @@
 import styles from "./Aplicativo.module.scss";
-
+import React from "react";
+import qrcode from 'assets/img/qr_download.png'
 export default function Aplicativo() {
   return (
     <section className={styles.aplicativo}>
       <div className={styles.aplicativo__donwloads}>
         <h2 className={styles.downloads}>Área de downloads</h2>
         <div className={styles.download__app}>
+          <h2 className={styles['app__titulo--desktop']}>Aponte a câmera do seu celular para o QR Code:</h2>
+          <img src={qrcode} className={styles['qrcode']} alt="sdo"/>
           <h2 className={styles.app__titulo}>Baixe o app! :{")"}</h2>
           <button className={styles.baixar__app}>Baixar</button>
         </div>

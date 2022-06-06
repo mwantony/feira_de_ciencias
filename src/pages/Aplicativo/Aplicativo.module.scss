@@ -77,3 +77,28 @@
   text-indent: 30px;
   text-align: justify;
 }
+
+.app__titulo--desktop {
+  display: none;
+
+}
+
+.qrcode {
+  display: none;
+}
+
+@media (min-width: $media) {
+  .app__titulo--desktop {
+    display: inline;
+  }
+  .qrcode {
+    display: block;
+    width: 20%;
+  }
+  .app__titulo {
+    display: none;
+  }
+  .baixar__app {
+    display: none;
+  }
+}
