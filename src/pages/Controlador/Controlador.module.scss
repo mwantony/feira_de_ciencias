@@ -5,64 +5,6 @@
   margin: 0 auto;
 }
 
-.input__div {
-  display: flex;
-  margin: 4rem auto 2rem auto;
-  width: 70%;
-  padding-left: 0.2rem;
-  align-items: flex-start;
-}
-
-.inputs {
-  margin-top: -1.63rem;
-  text-shadow: 0px 2px 4px $tema-principal;
-}
-
-.label {
-  text-shadow: 0px 2px 10px $tema-principal;
-  color: $surface;
-  margin-left: 1rem;
-}
-
-#label-valor {
-  text-shadow: 0px 2px 4px $tema-principal;
-}
-
-.controlador {
-  &__botao {
-    &:disabled {
-      opacity: 0.6;
-    }
-    z-index: 1;
-    width: 45%;
-    margin: 0rem auto;
-    display: block;
-    background: $surface;
-    transition: 500ms;
-    text-shadow: 0px 2px 4px $text-shadow;
-    font-weight: 800;
-    padding: 0.5rem;
-    border: none;
-    color: $tema-principal;
-    box-shadow: 0px 2px 6px $text-shadow;
-    border-radius: 2px;
-  }
-  &__botao--popupon {
-    z-index: -1;
-  }
-  &__input {
-    border-radius: 2px;
-    box-shadow: 0px 2px 6px $text-shadow;
-    margin: 0.5rem 0 0.5rem 0;
-    color: $surface;
-    border: none;
-    padding: 0.5rem;
-    background-color: $input;
-    text-align: center;
-    width: 90%;
-  }
-}
-
 .lista {
   display: flex;
   padding: 0 0 1rem 0;

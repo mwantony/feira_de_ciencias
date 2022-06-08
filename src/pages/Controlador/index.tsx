@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Controlador.module.scss";
+import Criar from "./Criar";
+import CriarBotao from "./CriarBotao";
 import Estado from "./Estado";
 import Forma from "./Forma";
 import Resetar from "./Resetar";
@@ -19,6 +21,7 @@ export default function Controlador({
   const [dadosInput, setDadosInput] = useState("");
   const [aparecer, setAparecer] = useState(false);
   const [dadosInputCategoria, setDadosInputCategoria] = useState("");
+  const [aparecerCriar, setAparecerCriar] = useState(false)
   const [entradas, setEntradas] = useState([
     {
       quantia: "",
@@ -86,8 +89,61 @@ export default function Controlador({
     { quantia: "", categoria: "" },
   ];
   const [aparecerValidacao, setAparecerValidacao] = useState(false);
+  const adiciona = () => {
+    if (Number(dadosInput) >= 0 && dadosInputCategoria !== "") {
+      console.log("ok");
+      setDadosInput("");
+      setDadosInputCategoria("");
+      setEstadoAtual(estadoEntradas - estadoSaidas);
+      setDTotal(estadoAtual);
+      if (forma === 1) {
+        setEstadoEntradas(estadoEntradas + Number(dadosInput));
+        setDEntradas(estadoEntradas);
+        setEntradas([
+          ...entradas,
+          {
+            quantia: String(dadosInput),
+            categoria: String(dadosInputCategoria),
+          },
+        ]);
+        window.localStorage.setItem(
+          "entradas",
+          JSON.stringify([
+            ...dataEnt,
+            {
+              quantia: Number(dadosInput),
+              categoria: String(dadosInputCategoria),
+            },
+          ])
+        );
+      } else {
+        setEstadoSaidas(estadoSaidas + Number(dadosInput));
+        setDSaidas(estadoSaidas);
+        totalSaidas += Number(dadosInput);
+        setSaidas([
+          ...saidas,
+          {
+            quantia: String(dadosInput),
+            categoria: String(dadosInputCategoria),
+          },
+        ]);
+        window.localStorage.setItem(
+          "saidas",
+          JSON.stringify([
+            ...dataSai,
+            {
+              quantia: Number(dadosInput),
+              categoria: String(dadosInputCategoria),
+            },
+          ])
+        );
+      }
+    } else {
+      setAparecerValidacao(true);
+    }
+  }
   return (
-    <section className={styles['section--controlador']}>
+    <section className={styles["section--controlador"]}>
       <ValidacaoValor
         setAparecerValidacao={setAparecerValidacao}
         aparecerValidacao={aparecerValidacao}
@@ -102,111 +158,9 @@ export default function Controlador({
         setEntradas={setEntradas}
         setSaidas={setSaidas}
       ></Resetar>
+      <CriarBotao setAparecerCriar={setAparecerCriar}/>
       <div className={styles.controlador}>
-        <div className={styles.input__div}>
-          <div className={styles.inputs}>
-            <div>
-              <label id="label-valor" className={styles.label} htmlFor="valor">
-                Valor: R$
-              </label>
-              <input
-                id="valor"
-                min={0}
-                type="text"
-                onChange={(evento: any) => {
-                  setDadosInput(evento.target.value);
-                  console.log(estadoEntradas, estadoSaidas);
-                }}
-                className={styles.controlador__input}
-                value={dadosInput}
-                maxLength={5}
-              ></input>
-            </div>
-            <div>
-              <label
-                id="label-categoria"
-                className={styles.label}
-                htmlFor="categoria"
-              >
-                Categoria:
-              </label>
-              <input
-                id="categoria"
-                onChange={(evento) => {
-                  setDadosInputCategoria(evento.target.value);
-                }}
-                maxLength={20}
-                type="text"
-                className={styles.controlador__input}
-                value={dadosInputCategoria}
-              />
-            </div>
-          </div>
-          <button
-            onClick={() => {
-              if (Number(dadosInput) >= 0 && dadosInputCategoria !== "") {
-                console.log("ok");
-                setDadosInput("");
-                setDadosInputCategoria("");
-                setEstadoAtual(estadoEntradas - estadoSaidas);
-                setDTotal(estadoAtual);
-                if (forma === 1) {
-                  setEstadoEntradas(estadoEntradas + Number(dadosInput));
-                  setDEntradas(estadoEntradas);
-                  setEntradas([
-                    ...entradas,
-                    {
-                      quantia: String(dadosInput),
-                      categoria: String(dadosInputCategoria),
-                    },
-                  ]);
-                  window.localStorage.setItem(
-                    "entradas",
-                    JSON.stringify([
-                      ...dataEnt,
-                      {
-                        quantia: Number(dadosInput),
-                        categoria: String(dadosInputCategoria),
-                      },
-                    ])
-                  );
-                } else {
-                  setEstadoSaidas(estadoSaidas + Number(dadosInput));
-                  setDSaidas(estadoSaidas);
-                  totalSaidas += Number(dadosInput);
-                  setSaidas([
-                    ...saidas,
-                    {
-                      quantia: String(dadosInput),
-                      categoria: String(dadosInputCategoria),
-                    },
-                  ]);
-                  window.localStorage.setItem(
-                    "saidas",
-                    JSON.stringify([
-                      ...dataSai,
-                      {
-                        quantia: Number(dadosInput),
-                        categoria: String(dadosInputCategoria),
-                      },
-                    ])
-                  );
-                }
-              } else {
-                setAparecerValidacao(true);
-              }
-            }}
-            disabled={
-              dadosInput === "" || dadosInputCategoria === "" ? true : false
-            }
-            className={classNames({
-              [styles.controlador__botao]: true,
-              [styles['controlador__botao--popupon']]: aparecer === true ? true : false
-            })}
-          >
-            Aplicar
-          </button>
-        </div>
+        <Criar aparecerCriar={aparecerCriar} setAparecerCriar={setAparecerCriar} adiciona={adiciona} setDadosInput={setDadosInput} dadosInput={dadosInput} aparecer={aparecer} setDadosInputCategoria={setDadosInputCategoria} dadosInputCategoria={dadosInputCategoria}></Criar>
         <ul className={styles.lista}>
           {dataEnt.map((valor, index) => {
             if (valor.quantia) {

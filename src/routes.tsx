@@ -10,8 +10,8 @@ import Controlador from "./pages/Controlador";
 export default function AppRouter() {
   const [selecionado, setSelecionado] = useState(-1);
   useEffect(() => {
-    if (window.location.href === 'https://www.hicash.ga/controlador') {
-      setSelecionado(0)
+    if (window.location.href === "https://www.hicash.ga/controlador") {
+      setSelecionado(0);
     }
     if (window.location.href === "https://www.hicash.ga/carteira") {
       setSelecionado(1);
@@ -32,19 +32,18 @@ export default function AppRouter() {
       ></Cabecalho>
       <main>
         <Routes>
-          <Route path="/" element={<PaginaPadrao></PaginaPadrao>}>
+          <Route
+            path="/controlador"
+            element={
+              <Controlador
+                setDEntradas={setDEntradas}
+                setDSaidas={setDSaidas}
+                setDTotal={setDTotal}
+              ></Controlador>
+            }
+          ></Route>
             <Route
-                index
-                element={
-                <Controlador
-                  setDEntradas={setDEntradas}
-                  setDSaidas={setDSaidas}
-                  setDTotal={setDTotal}
-                ></Controlador>
-              }
-            ></Route>
-            <Route
-              path="carteira"
+              path="/carteira"
               element={
                 <Carteira
                   entradas={dEntradas}
@@ -53,12 +52,11 @@ export default function AppRouter() {
                 ></Carteira>
               }
             ></Route>
-            <Route
-              path="extrato"
-              element={<Aplicativo></Aplicativo>}
-            ></Route>
-          </Route>
-          <Route path="*" element={<NotFound setSelecionado={setSelecionado}></NotFound>}></Route>
+            <Route path="/extrato" element={<Aplicativo></Aplicativo>}></Route>
+          <Route
+            path="*"
+            element={<NotFound setSelecionado={setSelecionado}></NotFound>}
+          ></Route>
         </Routes>
       </main>
     </BrowserRouter>
