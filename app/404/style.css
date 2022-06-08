@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;800&display=swap");
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+.notfound {
+  display: block;
+  width: 100%;
+  margin: 30vh auto;
+  text-align: center;
+}
+.notfound__oops {
+  color: #7e7e7e;
+  font-weight: 800;
+  font-size: 25px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.notfound__titulo {
+  color: #7e7e7e;
+  font-weight: 800;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+}
+.notfound__paragraph {
+  color: #7e7e7e;
+  font-weight: 400;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+}
+
+.notfound__button {
+  border: none;
+  color: #f1f1f1;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 1.2rem;
+  border-radius: 2px;
+  font-weight: 800;
+  background-color: #7e7e7e;
+}
+
+.notfound__link {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+.notfound__nuvem1,
+.notfound__nuvem2,
+.notfound__nuvem3 {
+  position: absolute;
+  filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25));
+}
+.notfound__nuvem1 {
+  top: 20%;
+  left: 90%;
+  width: 5%;
+  animation: nuvem1 70s infinite ease-in-out alternate;
+}
+.notfound__nuvem2 {
+  top: 30%;
+  left: 50%;
+  animation: nuvem2 70s infinite ease-in-out alternate;
+}
+.notfound__nuvem3 {
+  top: 40%;
+  right: -2rem;
+  animation: nuvem3 70s infinite ease-in-out alternate;
+}
+@keyframes nuvem1 {
+  to {
+    transform: translateX(-95vw);
+  }
+}
+@keyframes nuvem2 {
+  to {
+    transform: translateX(-140vw);
+  }
+}
+@keyframes nuvem3 {
+  to {
+    transform: translateX(-120vw);
+  }
+}
+
+@media (min-width: 767px) {
+    .notfound__nuvem1 {
+      animation: nuvem1 100s infinite ease-in-out alternate;
+    }
+    .notfound__nuvem2 {
+      animation: nuvem2 100s infinite ease-in-out alternate;
+    }
+    .notfound__nuvem3 {
+      animation: nuvem3 100s infinite ease-in-out alternate;
+    }
+}

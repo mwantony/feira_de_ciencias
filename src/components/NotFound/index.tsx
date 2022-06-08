@@ -1,7 +1,7 @@
 import React from 'react';
-import {ReactComponent as Logo1} from 'assets/svgs/nuvem1.svg'
-import {ReactComponent as Logo2} from 'assets/svgs/nuvem2.svg'
-import {ReactComponent as Logo3} from 'assets/svgs/nuvem3.svg'
+import {ReactComponent as Logo1} from 'assets/svg/nuvem1.svg'
+import {ReactComponent as Logo2} from 'assets/svg/nuvem2.svg'
+import {ReactComponent as Logo3} from 'assets/svg/nuvem3.svg'
 import styles from './NotFound.module.scss';
 import { Link } from 'react-router-dom';
 
