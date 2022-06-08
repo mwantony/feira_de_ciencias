@@ -1,6 +1,6 @@
 import Cabecalho from "components/Cabecalho";
 import NotFound from "components/NotFound";
-import Aplicativo from "pages/Aplicativo";
+import Extrato from "pages/Extrato";
 import Carteira from "pages/Carteira";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -52,7 +52,7 @@ export default function AppRouter() {
                 ></Carteira>
               }
             ></Route>
-            <Route path="/extrato" element={<Aplicativo></Aplicativo>}></Route>
+            <Route path="/extrato" element={<Extrato></Extrato>}></Route>
           <Route
             path="*"
             element={<NotFound setSelecionado={setSelecionado}></NotFound>}
