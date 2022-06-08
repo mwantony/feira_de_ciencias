@@ -10,13 +10,13 @@ import Controlador from "./pages/Controlador";
 export default function AppRouter() {
   const [selecionado, setSelecionado] = useState(-1);
   useEffect(() => {
-    if (window.location.href === 'http://localhost:3000/') {
+    if (window.location.href === 'https://www.hicash.ga/controlador') {
       setSelecionado(0)
     }
-    if (window.location.href === "http://localhost:3000/carteira") {
+    if (window.location.href === "https://www.hicash.ga/carteira") {
       setSelecionado(1);
     }
-    if (window.location.href === "http://localhost:3000/aplicativo") {
+    if (window.location.href === "https://www.hicash.ga/extrato") {
       setSelecionado(2);
     }
     console.log("s");
@@ -34,8 +34,8 @@ export default function AppRouter() {
         <Routes>
           <Route path="/" element={<PaginaPadrao></PaginaPadrao>}>
             <Route
-              index
-              element={
+                index
+                element={
                 <Controlador
                   setDEntradas={setDEntradas}
                   setDSaidas={setDSaidas}
@@ -54,7 +54,7 @@ export default function AppRouter() {
               }
             ></Route>
             <Route
-              path="aplicativo"
+              path="extrato"
               element={<Aplicativo></Aplicativo>}
             ></Route>
           </Route>
