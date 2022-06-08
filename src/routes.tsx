@@ -8,6 +8,7 @@ import PaginaPadrao from "./components/PaginaPadrao";
 import Controlador from "./pages/Controlador";
 
 export default function AppRouter() {
+  const [extrato, setExtrato] = useState([]);
   const [selecionado, setSelecionado] = useState(-1);
   useEffect(() => {
     if (window.location.href === "https://www.hicash.ga/controlador") {
@@ -42,17 +43,20 @@ export default function AppRouter() {
               ></Controlador>
             }
           ></Route>
-            <Route
-              path="/carteira"
-              element={
-                <Carteira
-                  entradas={dEntradas}
-                  saidas={dSaidas}
-                  total={dTotal}
-                ></Carteira>
-              }
-            ></Route>
-            <Route path="/extrato" element={<Extrato></Extrato>}></Route>
+          <Route
+            path="/carteira"
+            element={
+              <Carteira
+                entradas={dEntradas}
+                saidas={dSaidas}
+                total={dTotal}
+              ></Carteira>
+            }
+          ></Route>
+          <Route
+            path="/extrato"
+            element={<Extrato extrato={extrato}></Extrato>}
+          ></Route>
           <Route
             path="*"
             element={<NotFound setSelecionado={setSelecionado}></NotFound>}
