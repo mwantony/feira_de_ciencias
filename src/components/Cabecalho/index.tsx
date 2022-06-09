@@ -29,6 +29,11 @@ export default function Cabecalho({ selecionado, setSelecionado }: Props) {
   ];
 
   return (
+    <>
+    <div onClick={() => setAbrir(false)} className={classNames({
+      [styles.escuro]: true,
+      [styles['escuro--aparecer']]: abrir === true ? true : false
+    })}></div>
     <header className={styles.cabecalho}>
       <nav className={styles.navegacao}>
         <ul
@@ -73,5 +78,6 @@ export default function Cabecalho({ selecionado, setSelecionado }: Props) {
         className={styles.cabecalho__hamburguer}
       ></MenuSharp>
     </header>
+    </>
   );
 }
