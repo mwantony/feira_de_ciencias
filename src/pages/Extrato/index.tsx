@@ -19,7 +19,7 @@ export default function Extrato({extrato, forma, dataExt}: Props) {
         <h2 className={classNames({
           [styles.lista__semregistro]: true,
           [styles.none]: dataExt[1] ? true : false
-        })}>Não foi encontrado registros...</h2>
+        })}>Não foram encontrados registros...</h2>
         {dataExt.map((operacao, index) => {
           if(operacao.quantia !== '') {
             return(
