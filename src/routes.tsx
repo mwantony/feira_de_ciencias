@@ -8,30 +8,30 @@ import Controlador from "./pages/Controlador";
 import { buildData } from "common/func/retornaData";
 
 export default function AppRouter() {
-  if(!localStorage.extrato) {
+  if (!localStorage.extrato) {
     localStorage.extrato = JSON.stringify([
       {
         quantia: "",
         categoria: "",
         data: "",
-        negativo: false
+        negativo: false,
       },
-    ])
+    ]);
   }
   const [extrato, setExtrato] = useState(JSON.parse(localStorage.extrato));
   let dataExt: Array<any> = JSON.parse(localStorage.extrato) || [
-    { quantia: "", categoria: "", data: '' },
+    { quantia: "", categoria: "", data: "" },
   ];
   const [forma, setForma] = useState(1);
   const [selecionado, setSelecionado] = useState(-1);
   useEffect(() => {
-    if (window.location.href === "https://www.hicash.ga/controlador") {
+    if (window.location.href === "https://www.hicash.ga/controlador/") {
       setSelecionado(0);
     }
-    if (window.location.href === "https://www.hicash.ga/carteira") {
+    if (window.location.href === "https://www.hicash.ga/carteira/") {
       setSelecionado(1);
     }
-    if (window.location.href === "https://www.hicash.ga/extrato") {
+    if (window.location.href === "https://www.hicash.ga/extrato/") {
       setSelecionado(2);
     }
   }, [setSelecionado]);
@@ -47,7 +47,7 @@ export default function AppRouter() {
       <main>
         <Routes>
           <Route
-            path="/controlador"
+            path="/"
             element={
               <Controlador
                 forma={forma}
@@ -61,7 +61,21 @@ export default function AppRouter() {
             }
           ></Route>
           <Route
-            path="/carteira"
+            path="/controlador/"
+            element={
+              <Controlador
+                forma={forma}
+                setForma={setForma}
+                extrato={extrato}
+                setExtrato={setExtrato}
+                setDEntradas={setDEntradas}
+                setDSaidas={setDSaidas}
+                setDTotal={setDTotal}
+              ></Controlador>
+            }
+          ></Route>
+          <Route
+            path="/carteira/"
             element={
               <Carteira
                 entradas={dEntradas}
@@ -71,8 +85,14 @@ export default function AppRouter() {
             }
           ></Route>
           <Route
-            path="/extrato"
-            element={<Extrato dataExt={dataExt} forma={forma} extrato={extrato}></Extrato>}
+            path="/extrato/"
+            element={
+              <Extrato
+                dataExt={dataExt}
+                forma={forma}
+                extrato={extrato}
+              ></Extrato>
+            }
           ></Route>
           <Route
             path="*"

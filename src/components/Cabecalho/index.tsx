@@ -16,15 +16,15 @@ export default function Cabecalho({ selecionado, setSelecionado }: Props) {
   const menu = [
     {
       label: "Controlador",
-      to: "/controlador",
+      to: "/controlador/",
     },
     {
       label: "Carteira",
-      to: "/carteira",
+      to: "/carteira/",
     },
     {
       label: "Extrato",
-      to: "/extrato",
+      to: "/extrato/",
     },
   ];
 
