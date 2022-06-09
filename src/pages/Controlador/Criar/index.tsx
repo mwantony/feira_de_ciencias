@@ -14,6 +14,7 @@ interface Props {
     quantia: string;
     categoria: string;
     data: string;
+    negativo: boolean;
 }[]>>
 }
 

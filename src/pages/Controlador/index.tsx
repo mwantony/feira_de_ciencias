@@ -16,11 +16,13 @@ interface Props {
     quantia: string;
     categoria: string;
     data: string;
+    negativo: boolean;
 }[]>>
   extrato: {
     quantia: string;
     categoria: string;
     data: string;
+    negativo: boolean
 }[],
   forma: number,
   setForma: React.Dispatch<React.SetStateAction<number>>
@@ -119,8 +121,8 @@ export default function Controlador({
       setEstadoAtual(estadoEntradas - estadoSaidas);
       setDTotal(estadoAtual);
       if (forma === 1) {
-        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}])
-        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}]))
+        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: false}])
+        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: false}]))
         setEstadoEntradas(estadoEntradas + Number(dadosInput));
         console.log(extrato)
         console.log('1')
@@ -145,11 +147,10 @@ export default function Controlador({
           ])
         );
       } else {
-        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}])
-        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}]))
+        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: true}])
+        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: true}]))
         setEstadoSaidas(estadoSaidas + Number(dadosInput));
         setDSaidas(estadoSaidas);
-        setExtrato([{quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}])
         totalSaidas += Number(dadosInput);
         setSaidas([
           ...saidas,
@@ -184,6 +185,7 @@ export default function Controlador({
       <Estado estado={estadoAtual}></Estado>
       <Forma forma={forma} setForma={setForma}></Forma>
       <Resetar
+        setExtrato={setExtrato}
         aparecer={aparecer}
         setAparecer={setAparecer}
         setEstadoEntradas={setEstadoEntradas}

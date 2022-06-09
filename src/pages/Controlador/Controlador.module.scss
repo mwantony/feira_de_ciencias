@@ -55,21 +55,7 @@
 }
 
 @media(min-width: $media) {
-  .controlador {
-    &__input {
-      width: 100%;
-      border-radius: 3px;
-    }
 
-    &__botao {
-      width: 30%;
-      border-radius: 3px;
-    }
-  }
-
-  .inputs {
-    width: 60%;
-  }
   .section--controlador {
     width: 60%;
     margin: 0 auto;

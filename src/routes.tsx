@@ -14,6 +14,7 @@ export default function AppRouter() {
       quantia: "",
       categoria: "",
       data: "",
+      negativo: false
     },
   ]);
   const [selecionado, setSelecionado] = useState(-1);

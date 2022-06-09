@@ -2,6 +2,12 @@ import styles from "./Resetar.module.scss";
 import { useState, useEffect } from "react";
 import ConfirmarReset from "../ConfirmarReset";
 interface Props {
+  setExtrato: React.Dispatch<React.SetStateAction<{
+    quantia: string;
+    categoria: string;
+    data: string;
+    negativo: boolean;
+}[]>>
   setEntradas: React.Dispatch<
     React.SetStateAction<
       {
@@ -34,6 +40,7 @@ export default function Resetar({
   aparecer,
   setAparecer,
   setEstadoEntradas,
+  setExtrato,
   setEstadoSaidas,
 }: Props) {
   const [deletar, setDeletar] = useState(false);
@@ -43,6 +50,7 @@ export default function Resetar({
       setEstadoSaidas(0);
       setEntradas([{ quantia: "", categoria: "", data: '' }]);
       setSaidas([{ quantia: "", categoria: "", data: '' }]);
+      setExtrato([{ quantia: "", categoria: "", data: '', negativo: false }])
       window.localStorage.removeItem("entradas");
       window.localStorage.removeItem("saidas");
       window.localStorage.removeItem("extrato");

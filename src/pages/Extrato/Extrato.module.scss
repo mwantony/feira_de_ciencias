@@ -1,104 +1,65 @@
 @import "styles/_variaveis.scss";
 
-.aplicativo {
-  margin-top: 2.5rem;
-  padding: 0 2rem;
-}
+@import "styles/_variaveis.scss";
 
-.downloads {
-  color: $positivo;
-  text-shadow: 0px 2px 4px $text-shadow;
-}
-
-.download__app {
-  display: flex;
+.section--controlador {
   width: 100%;
-  align-items: center;
-  justify-content: space-evenly;
+  margin: 0 auto;
 }
 
-.app__titulo {
-  color: $surface;
-  font-weight: 400;
-  text-shadow: 0px 2px 4px $text-shadow;
-}
-
-.baixar__app {
-  border: none;
-  box-shadow: 0px 2px 4px $text-shadow;
-  height: 40px;
-  color: $tema-principal;
-  padding: 0 1rem;
-  font-weight: 800;
-  font-size: 16px;
-  text-shadow: 0px 2px 4px $text-shadow;
-  border-radius: 2px;
-  background-color: $surface;
-}
-
-.download__planilha {
+.lista {
   display: flex;
-  align-items: center;
+  padding: 0 0 1rem 0;
   flex-direction: column;
+  width: 90%;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  list-style: none;
+  &__content {
+    background-color: $tema-principal;
+    width: calc(100% - 2rem);
+    margin: 0.6rem 0.6rem 0.6rem 0;
+    display: flex;
+    height: 40px;
+    display: flex;
+    font-size: 14px;
+    text-shadow: 0px 2px 4px $text-shadow;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0px 3px 10px $text-shadow;
+  }
+  &__quantia--positivo {
+    color: $positivo;
+  }
+
+  &__quantia--negativo {
+    color: $negativo;
+  }
+  &__categoria {
+    text-align: center;
+    color: $surface;
+    width: 30%;
+    word-wrap: break-word;
+  }
 }
 
-.planilha__titulo {
-  font-weight: 400;
-  color: $surface;
-  text-shadow: 0px 2px 4px $text-shadow;
+@media(min-width: $media) {
+  
+  .lista {
+    width: 70%;
+    &__content {
+      height: 60px;
+    }
+  }
+  .lista__quantia, .lista__categoria {
+    font-size: 18px;
+  }
 }
 
-.baixar__planilha {
-  border: none;
-  background-color: $negativo;
-  box-shadow: 0px 2px 4px $text-shadow;
-  color: $tema-principal;
-  text-shadow: 0px 2px 4px $text-shadow;
-  padding: 0.7rem 1.2rem;
-  border-radius: 2px;
-  font-weight: 800;
-}
 
-.aplicativo__porqueusar {
-  margin-top: 3rem;
-}
 
-.porqueusar__titulo {
-  color: $positivo;
-  text-shadow: 0px 2px 4px $text-shadow;
-}
-
-.porqueusar__paragraph {
-  color: $surface;
-  font-weight: 400;
-  font-size: 16px;
-  text-shadow: 0px 1px 4px $text-shadow;
-  line-height: 1.3rem;
-  text-indent: 30px;
-  text-align: justify;
-}
-
-.app__titulo--desktop {
+.none {
   display: none;
-
-}
-
-.qrcode {
-  display: none;
-}
-
-@media (min-width: $media) {
-  .app__titulo--desktop {
-    display: inline;
-  }
-  .qrcode {
-    display: block;
-    width: 20%;
-  }
-  .app__titulo {
-    display: none;
-  }
-  .baixar__app {
-    display: none;
-  }
 }
