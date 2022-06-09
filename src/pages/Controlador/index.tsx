@@ -115,14 +115,13 @@ export default function Controlador({
   const [aparecerValidacao, setAparecerValidacao] = useState(false);
   const adiciona = () => {
     if (Number(dadosInput) >= 0 && dadosInputCategoria !== "") {
-      console.log(moment().format('DD/MM/YYYY'));
       setDadosInput("");
       setDadosInputCategoria("");
       setEstadoAtual(estadoEntradas - estadoSaidas);
       setDTotal(estadoAtual);
       if (forma === 1) {
-        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: false}])
-        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: false}]))
+        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY HH:MM'), negativo: false}])
+        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY HH:MM'), negativo: false}]))
         setEstadoEntradas(estadoEntradas + Number(dadosInput));
         console.log(extrato)
         console.log('1')
@@ -132,7 +131,7 @@ export default function Controlador({
           {
             quantia: String(dadosInput),
             categoria: String(dadosInputCategoria),
-            data: moment().format('DD/MM/YYYY')
+            data: moment().format('DD/MM/YYYY HH:MM')
           },
         ]);
         window.localStorage.setItem(
@@ -142,13 +141,13 @@ export default function Controlador({
             {
               quantia: Number(dadosInput),
               categoria: String(dadosInputCategoria),
-              data: moment().format('DD/MM/YYYY')
+              data: moment().format('DD/MM/YYYY HH:MM')
             },
           ])
         );
       } else {
-        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: true}])
-        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY'), negativo: true}]))
+        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY HH:MM'), negativo: true}])
+        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY HH:MM'), negativo: true}]))
         setEstadoSaidas(estadoSaidas + Number(dadosInput));
         setDSaidas(estadoSaidas);
         totalSaidas += Number(dadosInput);
@@ -157,7 +156,7 @@ export default function Controlador({
           {
             quantia: String(dadosInput),
             categoria: String(dadosInputCategoria),
-            data: moment().format('DD/MM/YYYY')
+            data: moment().format('DD/MM/YYYY HH:MM')
           },
         ]);
         window.localStorage.setItem(
@@ -167,7 +166,7 @@ export default function Controlador({
             {
               quantia: Number(dadosInput),
               categoria: String(dadosInputCategoria),
-              data: moment().format('DD/MM/YYYY')
+              data: moment().format('DD/MM/YYYY HH:MM')
             },
           ])
         );

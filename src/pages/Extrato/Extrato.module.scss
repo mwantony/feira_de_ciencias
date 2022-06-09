@@ -22,7 +22,7 @@
     display: flex;
     height: 40px;
     display: flex;
-    font-size: 14px;
+    font-size: 12px;
     text-shadow: 0px 2px 4px $text-shadow;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +43,12 @@
     width: 30%;
     word-wrap: break-word;
   }
+  &__data {
+    width: 80px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.651);
+    word-wrap: break-word;
+  }
 }
 
 @media(min-width: $media) {
@@ -53,8 +59,8 @@
       height: 60px;
     }
   }
-  .lista__quantia, .lista__categoria {
-    font-size: 18px;
+  .lista__quantia, .lista__categoria, .lista__data {
+    font-size: 14px;
   }
 }
 

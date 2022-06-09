@@ -4,21 +4,20 @@ import Extrato from "pages/Extrato";
 import Carteira from "pages/Carteira";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PaginaPadrao from "./components/PaginaPadrao";
 import Controlador from "./pages/Controlador";
 
 export default function AppRouter() {
-  const [extrato, setExtrato] = useState([
-    {
-      quantia: "",
-      categoria: "",
-      data: "",
-      negativo: false
-    },
-  ]);
   if(!localStorage.extrato) {
-    localStorage.extrato = JSON.stringify(extrato)
+    localStorage.extrato = JSON.stringify([
+      {
+        quantia: "",
+        categoria: "",
+        data: "",
+        negativo: false
+      },
+    ])
   }
+  const [extrato, setExtrato] = useState(JSON.parse(localStorage.extrato));
   let dataExt: Array<any> = JSON.parse(localStorage.extrato) || [
     { quantia: "", categoria: "", data: '' },
   ];
