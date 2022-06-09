@@ -61,6 +61,10 @@
     color: rgba(0, 0, 0, 0.651);
     word-wrap: break-word;
   }
+  &__quantia {
+    text-align: right;
+    width: 100px;
+  }
 }
 
 @media(min-width: $media) {
