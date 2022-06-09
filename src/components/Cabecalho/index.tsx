@@ -68,7 +68,6 @@ export default function Cabecalho({ selecionado, setSelecionado }: Props) {
       <MenuSharp
         onClick={() => {
           setAbrir(true);
-          console.log(abrir);
         }}
         sx={{ fontSize: 37 }}
         className={styles.cabecalho__hamburguer}

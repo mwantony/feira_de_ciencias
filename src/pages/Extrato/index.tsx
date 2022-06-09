@@ -20,7 +20,7 @@ export default function Extrato({extrato, forma, dataExt}: Props) {
 
   return (
     <section className={styles.aplicativo}>
-      <ul className={styles.lista} onClick={() => console.log(extrato)}>
+      <ul className={styles.lista}>
         {dataExt.map((operacao, index) => {
           if(operacao.quantia !== '') {
             return(

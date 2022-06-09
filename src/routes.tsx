@@ -5,6 +5,7 @@ import Carteira from "pages/Carteira";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Controlador from "./pages/Controlador";
+import { buildData } from "common/func/retornaData";
 
 export default function AppRouter() {
   if(!localStorage.extrato) {
@@ -33,7 +34,6 @@ export default function AppRouter() {
     if (window.location.href === "https://www.hicash.ga/extrato") {
       setSelecionado(2);
     }
-    console.log("s");
   }, [setSelecionado]);
   const [dEntradas, setDEntradas] = useState(0);
   const [dSaidas, setDSaidas] = useState(0);
