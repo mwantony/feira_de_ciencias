@@ -9,7 +9,12 @@ interface Props {
   dadosInput: string,
   setDadosInputCategoria: React.Dispatch<React.SetStateAction<string>>,
   dadosInputCategoria: string,
-  aparecer: boolean
+  aparecer: boolean,
+  setExtrato: React.Dispatch<React.SetStateAction<{
+    quantia: string;
+    categoria: string;
+    data: string;
+}[]>>
 }
 
 export default function Criar({
@@ -20,7 +25,8 @@ export default function Criar({
   dadosInputCategoria,
   aparecer,
   aparecerCriar,
-  setAparecerCriar
+  setAparecerCriar,
+  setExtrato
 }: Props) {
   return(
     <>

@@ -8,7 +8,14 @@ import PaginaPadrao from "./components/PaginaPadrao";
 import Controlador from "./pages/Controlador";
 
 export default function AppRouter() {
-  const [extrato, setExtrato] = useState([]);
+  const [forma, setForma] = useState(1);
+  const [extrato, setExtrato] = useState([
+    {
+      quantia: "",
+      categoria: "",
+      data: "",
+    },
+  ]);
   const [selecionado, setSelecionado] = useState(-1);
   useEffect(() => {
     if (window.location.href === "https://www.hicash.ga/controlador") {
@@ -37,6 +44,10 @@ export default function AppRouter() {
             path="/controlador"
             element={
               <Controlador
+                forma={forma}
+                setForma={setForma}
+                extrato={extrato}
+                setExtrato={setExtrato}
                 setDEntradas={setDEntradas}
                 setDSaidas={setDSaidas}
                 setDTotal={setDTotal}
@@ -55,7 +66,7 @@ export default function AppRouter() {
           ></Route>
           <Route
             path="/extrato"
-            element={<Extrato extrato={extrato}></Extrato>}
+            element={<Extrato forma={forma} extrato={extrato}></Extrato>}
           ></Route>
           <Route
             path="*"

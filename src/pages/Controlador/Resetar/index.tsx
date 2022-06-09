@@ -7,6 +7,7 @@ interface Props {
       {
         quantia: string;
         categoria: string;
+        data: string
       }[]
     >
   >;
@@ -15,6 +16,7 @@ interface Props {
       {
         quantia: string;
         categoria: string;
+        data: string
       }[]
     >
   >;
@@ -39,10 +41,11 @@ export default function Resetar({
     if (deletar === true) {
       setEstadoEntradas(0);
       setEstadoSaidas(0);
-      setEntradas([{ quantia: "", categoria: "" }]);
-      setSaidas([{ quantia: "", categoria: "" }]);
+      setEntradas([{ quantia: "", categoria: "", data: '' }]);
+      setSaidas([{ quantia: "", categoria: "", data: '' }]);
       window.localStorage.removeItem("entradas");
       window.localStorage.removeItem("saidas");
+      window.localStorage.removeItem("extrato");
       setDeletar(false);
     }
   }, [setEstadoEntradas, setEstadoSaidas, setEntradas, setSaidas, deletar]);

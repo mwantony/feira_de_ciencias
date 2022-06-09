@@ -90,3 +90,9 @@
   text-align: center;
   width: 90%;
 }
+
+@media(min-width: $media) {
+  .input__div {
+    width: 40%;
+  }
+}

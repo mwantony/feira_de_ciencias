@@ -31,7 +31,6 @@
   transform: translate(-90%, 50%);
   border-radius: 20px;
   text-align: center;
-  padding: 1rem;
   transition: 500ms ease-in-out;
   font-size: 25px;
   width: 60%;
@@ -49,6 +48,7 @@
 }
 
 .popupzoom--aparecer {
+  padding: 1rem;
   visibility: visible;
   opacity: 1;
   position: absolute;

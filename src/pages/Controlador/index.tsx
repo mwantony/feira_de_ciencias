@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect, useState } from "react";
 import styles from "./Controlador.module.scss";
 import Criar from "./Criar";
@@ -11,12 +12,28 @@ interface Props {
   setDEntradas: React.Dispatch<React.SetStateAction<number>>;
   setDSaidas: React.Dispatch<React.SetStateAction<number>>;
   setDTotal: React.Dispatch<React.SetStateAction<number>>;
+  setExtrato: React.Dispatch<React.SetStateAction<{
+    quantia: string;
+    categoria: string;
+    data: string;
+}[]>>
+  extrato: {
+    quantia: string;
+    categoria: string;
+    data: string;
+}[],
+  forma: number,
+  setForma: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default function Controlador({
   setDEntradas,
   setDSaidas,
   setDTotal,
+  setExtrato,
+  forma,
+  setForma,
+  extrato
 }: Props) {
   const [dadosInput, setDadosInput] = useState("");
   const [aparecer, setAparecer] = useState(false);
@@ -26,12 +43,14 @@ export default function Controlador({
     {
       quantia: "",
       categoria: "",
+      data: ''
     },
   ]);
   const [saidas, setSaidas] = useState([
     {
       quantia: "",
       categoria: "",
+      data: ''
     },
   ]);
   if (!localStorage.entradas) {
@@ -45,7 +64,6 @@ export default function Controlador({
   let totalSaidas = 0;
   const [estadoSaidas, setEstadoSaidas] = useState(totalSaidas);
   const [selecionado, setSelecionado] = useState(entradas);
-  const [forma, setForma] = useState(1);
   const [estadoAtual, setEstadoAtual] = useState(estadoEntradas - estadoSaidas);
   useEffect(() => {
     setEstadoAtual(estadoEntradas - estadoSaidas);
@@ -79,31 +97,40 @@ export default function Controlador({
     estadoAtual,
     setDEntradas,
     setDSaidas,
+    setExtrato,
+    extrato,
+    dadosInput,
+    dadosInputCategoria
   ]);
   const classNames = require("classnames");
   let dataEnt: Array<any> = JSON.parse(localStorage.entradas) || [
-    { quantia: "", categoria: "" },
+    { quantia: "", categoria: "", data: '' },
   ];
 
   let dataSai: Array<any> = JSON.parse(localStorage.saidas) || [
-    { quantia: "", categoria: "" },
+    { quantia: "", categoria: "", data: '' },
   ];
   const [aparecerValidacao, setAparecerValidacao] = useState(false);
   const adiciona = () => {
     if (Number(dadosInput) >= 0 && dadosInputCategoria !== "") {
-      console.log("ok");
+      console.log(moment().format('DD/MM/YYYY'));
       setDadosInput("");
       setDadosInputCategoria("");
       setEstadoAtual(estadoEntradas - estadoSaidas);
       setDTotal(estadoAtual);
       if (forma === 1) {
+        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}])
+        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}]))
         setEstadoEntradas(estadoEntradas + Number(dadosInput));
+        console.log(extrato)
+        console.log('1')
         setDEntradas(estadoEntradas);
         setEntradas([
           ...entradas,
           {
             quantia: String(dadosInput),
             categoria: String(dadosInputCategoria),
+            data: moment().format('DD/MM/YYYY')
           },
         ]);
         window.localStorage.setItem(
@@ -113,18 +140,23 @@ export default function Controlador({
             {
               quantia: Number(dadosInput),
               categoria: String(dadosInputCategoria),
+              data: moment().format('DD/MM/YYYY')
             },
           ])
         );
       } else {
+        setExtrato([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}])
+        window.localStorage.setItem('extrato', JSON.stringify([...extrato, {quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}]))
         setEstadoSaidas(estadoSaidas + Number(dadosInput));
         setDSaidas(estadoSaidas);
+        setExtrato([{quantia: String(dadosInput), categoria: String(dadosInputCategoria), data: moment().format('DD/MM/YYYY')}])
         totalSaidas += Number(dadosInput);
         setSaidas([
           ...saidas,
           {
             quantia: String(dadosInput),
             categoria: String(dadosInputCategoria),
+            data: moment().format('DD/MM/YYYY')
           },
         ]);
         window.localStorage.setItem(
@@ -134,6 +166,7 @@ export default function Controlador({
             {
               quantia: Number(dadosInput),
               categoria: String(dadosInputCategoria),
+              data: moment().format('DD/MM/YYYY')
             },
           ])
         );
@@ -160,7 +193,7 @@ export default function Controlador({
       ></Resetar>
       <CriarBotao setAparecerCriar={setAparecerCriar}/>
       <div className={styles.controlador}>
-        <Criar aparecerCriar={aparecerCriar} setAparecerCriar={setAparecerCriar} adiciona={adiciona} setDadosInput={setDadosInput} dadosInput={dadosInput} aparecer={aparecer} setDadosInputCategoria={setDadosInputCategoria} dadosInputCategoria={dadosInputCategoria}></Criar>
+        <Criar setExtrato={setExtrato} aparecerCriar={aparecerCriar} setAparecerCriar={setAparecerCriar} adiciona={adiciona} setDadosInput={setDadosInput} dadosInput={dadosInput} aparecer={aparecer} setDadosInputCategoria={setDadosInputCategoria} dadosInputCategoria={dadosInputCategoria}></Criar>
         <ul className={styles.lista}>
           {dataEnt.map((valor, index) => {
             if (valor.quantia) {
