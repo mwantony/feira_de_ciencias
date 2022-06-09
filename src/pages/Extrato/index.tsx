@@ -14,9 +14,8 @@ export default function Extrato({extrato, forma, dataExt}: Props) {
   if(!localStorage.extrato) {
     localStorage.extrato = JSON.stringify(extrato)
   }
-  function ordemCrescente(a: any, b: any) {
-    return a.data > b.data
-  }
+
+  console.log(dataExt.sort())
 
   return (
     <section className={styles.aplicativo}>
