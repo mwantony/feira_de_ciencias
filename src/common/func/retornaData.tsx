@@ -5,6 +5,6 @@ export function buildData() {
   let ano  = data.getFullYear();
   let hora = data.getHours()
   let minutos = data.getMinutes()
-  return `${dia}/${mes}/${ano} ${hora}:${minutos}`;
+  return `${dia}/${mes}/${ano} ${hora}:${JSON.stringify(minutos).length === 1 ? '0' : ''}${minutos}`;
 }
 

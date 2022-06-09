@@ -12,6 +12,7 @@
   width: 80%;
   margin: 0 auto;
   flex-wrap: wrap;
+  flex-direction: column-reverse;
   list-style: none;
   &__quantia {
     background-color: $tema-principal;

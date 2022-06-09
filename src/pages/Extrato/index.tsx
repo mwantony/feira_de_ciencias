@@ -1,6 +1,4 @@
 import styles from "./Extrato.module.scss";
-import React, { useEffect, useState } from "react";
-import qrcode from 'assets/img/qr_download.png';
 import classNames from "classnames";
 
 interface Props {
@@ -15,11 +13,13 @@ export default function Extrato({extrato, forma, dataExt}: Props) {
     localStorage.extrato = JSON.stringify(extrato)
   }
 
-  console.log(dataExt.sort())
-
   return (
     <section className={styles.aplicativo}>
       <ul className={styles.lista}>
+        <h2 className={classNames({
+          [styles.lista__semregistro]: true,
+          [styles.none]: dataExt[1] ? true : false
+        })}>Não foi encontrado registros...</h2>
         {dataExt.map((operacao, index) => {
           if(operacao.quantia !== '') {
             return(
