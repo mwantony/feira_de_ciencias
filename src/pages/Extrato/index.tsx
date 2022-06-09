@@ -5,17 +5,16 @@ import classNames from "classnames";
 
 interface Props {
   extrato: Array<any>
-  forma: number
+  forma: number,
+  dataExt: Array<any>
 }
 
-export default function Extrato({extrato, forma}: Props) {
+export default function Extrato({extrato, forma, dataExt}: Props) {
 
   if(!localStorage.extrato) {
     localStorage.extrato = JSON.stringify(extrato)
   }
-  let dataExt: Array<any> = JSON.parse(localStorage.extrato) || [
-    { quantia: "", categoria: "", data: '' },
-  ];
+
 
   return (
     <section className={styles.aplicativo}>
