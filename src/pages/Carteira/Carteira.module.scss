@@ -4,9 +4,10 @@
   &__div {
     display: flex;
     height: 100px;
-    width: 90%;
+    width: 100%;
     justify-content: space-evenly;
     align-items: center;
+    margin: auto;
   }
 
   &__div:first-child {
@@ -24,26 +25,25 @@
   }
 
   &__opcao {
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
     text-shadow: 0px 2px 4px $text-shadow;
     color: $surface;
-    width: 40%;
+    width: 50%;
+    word-wrap: break-word;
     margin-left: 1rem;
-  }
-
-  &__saidas {
-    width: 40%;
   }
 
   &__saidas--currency,
   &__entradas--currency {
-    font-size: 25px;
+    font-size: 18px;
+    text-align: center;
+    width: 50%;
     text-shadow: 0px 2px 4px $text-shadow;
   }
 
   &__total {
-    font-size: 30px;
+    font-size: 23px;
   }
 }
 
@@ -53,4 +53,22 @@
 
 .positivo {
   color: $positivo;
+}
+
+@media(min-width: $media) {
+  .carteira {
+    &__div {
+      width: 90%;
+    }
+    &__opcao {
+      font-size: 23px;
+    }
+    &__total {
+      font-size: 27px;
+    }
+    &__saidas--currency,
+    &__entradas--currency {
+      font-size: 23px;
+    }
+  }
 }
