@@ -2,42 +2,47 @@
 
 body {
   font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
   background-color: #f1f1f1;
   overflow-x: hidden;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .notfound {
   display: block;
   width: 100%;
-  margin: 30vh auto;
+  margin: 37vh auto;
   text-align: center;
 }
 .notfound__oops {
   color: #7e7e7e;
   font-weight: 800;
-  font-size: 25px;
+  font-size: 1.5rem;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .notfound__titulo {
   color: #7e7e7e;
   font-weight: 800;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 .notfound__paragraph {
   color: #7e7e7e;
   font-weight: 400;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .notfound__button {
   border: none;
   color: #f1f1f1;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.4rem;
+  font-family: inherit;
   border-radius: 2px;
   font-weight: 800;
+  font-size: 1rem;
   background-color: #7e7e7e;
 }
 
@@ -53,19 +58,19 @@ body {
   filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25));
 }
 .notfound__nuvem1 {
-  top: 20%;
+  top: 17%;
   left: 90%;
   width: 5%;
   animation: nuvem1 70s infinite ease-in-out alternate;
 }
 .notfound__nuvem2 {
-  top: 30%;
+  top: 27%;
   left: 50%;
   animation: nuvem2 70s infinite ease-in-out alternate;
 }
 .notfound__nuvem3 {
   top: 40%;
-  right: -2rem;
+  right: 1rem;
   animation: nuvem3 70s infinite ease-in-out alternate;
 }
 @keyframes nuvem1 {
@@ -93,5 +98,17 @@ body {
     }
     .notfound__nuvem3 {
       animation: nuvem3 100s infinite ease-in-out alternate;
+    }
+    .notfound__oops {
+      font-size: 2rem;
+    }
+    .notfound__titulo {
+      font-size: 1.5rem;
+    }
+    .notfound__paragraph {
+      font-size: 1.2rem;
+    }
+    .notfound__button {
+      font-size: 1.2rem;
     }
 }
