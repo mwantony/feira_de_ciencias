@@ -2,7 +2,6 @@
   "name": "feira_de_ciencias",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.hicash.ga/controlador/",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
