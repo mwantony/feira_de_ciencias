@@ -16,3 +16,14 @@
     color: $tema-principal;
   }
 }
+@media (min-width: $media) {
+  .resetar {
+    &__button {
+      transition-duration: 500ms;
+      &:hover {
+        cursor: pointer;
+        opacity: .7;
+      }
+    }
+  }
+}

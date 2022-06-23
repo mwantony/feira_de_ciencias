@@ -46,7 +46,8 @@
 }
 
 .popup--aparecer {
-  background-color: $text-shadow;
+  background-color: $escuro;
+  backdrop-filter: blur($blur);
   visibility: visible;
 }
 
@@ -82,6 +83,13 @@
   .popup {
     &__content {
       width: 40%;
+    }
+  }
+  .opcao__ok {
+    transition-duration: 500ms; 
+    &:hover {
+      opacity: .7;
+      cursor: pointer;
     }
   }
 }
