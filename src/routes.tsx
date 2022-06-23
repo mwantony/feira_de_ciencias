@@ -5,7 +5,6 @@ import Carteira from "pages/Carteira";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Controlador from "./pages/Controlador";
-import { buildData } from "common/func/retornaData";
 
 export default function AppRouter() {
   if (!localStorage.extrato) {
