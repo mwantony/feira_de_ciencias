@@ -103,3 +103,17 @@
     }
   }
 }
+@media(min-width: $media) {
+  .cabecalho {
+    &__hamburguer {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .lista__close {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
