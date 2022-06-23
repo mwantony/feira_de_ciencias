@@ -13,13 +13,15 @@ export default function ConfirmarReset({
   setAparecer,
 }: Props) {
   return (
-    <div
-      onClick={() => setAparecer(false)}
-      className={classNames({
-        [styles.popup]: true,
-        [styles["popup--aparecer"]]: aparecer === true ? true : false,
-      })}
-    >
+    <>
+      <div
+        onClick={() => setAparecer(false)}
+        className={classNames({
+          [styles.popup]: true,
+          [styles["popup--aparecer"]]: aparecer === true ? true : false,
+        })}
+      >
+      </div>
       <div
         className={classNames({
           [styles.popup__content]: true,
@@ -68,6 +70,6 @@ export default function ConfirmarReset({
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }

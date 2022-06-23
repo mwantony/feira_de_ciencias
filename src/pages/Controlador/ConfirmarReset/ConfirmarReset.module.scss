@@ -1,19 +1,16 @@
 @import "styles/_variaveis.scss";
 
 .popup {
+  visibility: hidden;
   position: fixed;
-  width: 100vw;
+  opacity: 0;
   top: 0;
   left: 0;
+  width: 100%;
   z-index: 3;
-  height: 100vh;
-  align-items: center;
-  display: flex;
-  justify-content: center;
   transition: 500ms ease-in-out;
-  visibility: hidden;
-  background-color: transparent;
-
+  height: 100%;
+  overflow: hidden;
   &__content {
     position: absolute;
     background-color: transparent;
@@ -49,9 +46,10 @@
 }
 
 .popup--aparecer {
+  opacity: 1;
+  visibility: visible;
   background-color: $escuro;
   backdrop-filter: blur($blur);
-  visibility: visible;
 }
 
 .opcoes__nao,
