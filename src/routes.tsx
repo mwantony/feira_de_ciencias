@@ -25,15 +25,7 @@ export default function AppRouter() {
   const [forma, setForma] = useState(1);
   const [selecionado, setSelecionado] = useState(-1);
   useEffect(() => {
-    if (window.location.href === "https://www.hicash.ga/controlador/") {
       setSelecionado(0);
-    }
-    if (window.location.href === "https://www.hicash.ga/carteira/") {
-      setSelecionado(1);
-    }
-    if (window.location.href === "https://www.hicash.ga/extrato/") {
-      setSelecionado(2);
-    }
   }, [setSelecionado]);
   const [dEntradas, setDEntradas] = useState(0);
   const [dSaidas, setDSaidas] = useState(0);
