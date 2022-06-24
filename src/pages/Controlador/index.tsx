@@ -191,7 +191,7 @@ export default function Controlador({
         setEntradas={setEntradas}
         setSaidas={setSaidas}
       ></Resetar>
-      <CriarBotao setAparecerCriar={setAparecerCriar}/>
+      <CriarBotao aparecer={aparecer} setAparecerCriar={setAparecerCriar}/>
       <div className={styles.controlador}>
         <Criar setExtrato={setExtrato} aparecerCriar={aparecerCriar} setAparecerCriar={setAparecerCriar} adiciona={adiciona} setDadosInput={setDadosInput} dadosInput={dadosInput} aparecer={aparecer} setDadosInputCategoria={setDadosInputCategoria} dadosInputCategoria={dadosInputCategoria}></Criar>
         <ul className={styles.lista}>
