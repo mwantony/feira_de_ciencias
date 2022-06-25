@@ -5,7 +5,7 @@
   width: 100vw;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   height: 100vh;
   align-items: center;
   display: flex;
@@ -22,6 +22,8 @@
     transition: 500ms ease-in-out;
     width: 60%;
     transform: translateY(200%);
+    z-index: 10;
+
   }
 
   &__content--aparecer {
@@ -32,7 +34,6 @@
     box-shadow: 0px 2px 4px $text-shadow;
     background-color: $tema-principal;
     visibility: visible;
-    z-index: 10;
   }
 
   &__opcoes {
@@ -48,7 +49,8 @@
 }
 
 .popup--aparecer {
-  background-color: $text-shadow;
+  background-color: $escuro;
+  backdrop-filter: blur($blur);
   visibility: visible;
 }
 
@@ -89,11 +91,24 @@
   text-shadow: 0px 2px 8px $tema-principal;
 }
 
-@media(min-width: $media) {
+@media (min-width: $media) {
   .popup {
     &__content {
       width: 40%;
-      font-size: 20px;
+    }
+  }
+  .opcoes__nao,
+  .opcoes__sim {
+    transition-duration: 500ms;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  .opcoes__nao--aparecer,
+  .opcoes__sim--aparecer {
+    transition-duration: 500ms;
+    &:hover {
+      cursor: pointer;
     }
   }
 }

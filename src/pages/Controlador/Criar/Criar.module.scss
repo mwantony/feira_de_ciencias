@@ -14,8 +14,8 @@
 .popup--aparecer {
   opacity: 1;
   visibility: visible;
-  background-color: rgba(0, 0, 0, 0.25);
-
+  background-color: $escuro;
+  backdrop-filter: blur($blur);
 }
 
 .input__div {
@@ -96,5 +96,12 @@
 @media(min-width: $media) {
   .input__div {
     width: 40%;
+  }
+  .controlador__botao {
+    transition-duration: 500ms;
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
   }
 }

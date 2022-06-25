@@ -13,3 +13,13 @@
   right: 1rem;
   bottom: 1rem;
 }
+
+@media(min-width: $media) {
+  .botao {
+    transition-duration: 500ms;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  }
+}
