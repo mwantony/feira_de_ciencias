@@ -9,13 +9,12 @@
   transition: 500ms ease-in-out;
   height: 100%;
   overflow: hidden;
+  background-color: $escuro;
 }
 
 .popup--aparecer {
   opacity: 1;
   visibility: visible;
-  background-color: $escuro;
-  backdrop-filter: blur($blur);
 }
 
 .input__div {

@@ -12,6 +12,7 @@
   justify-content: center;
   transition: 500ms ease-in-out;
   visibility: hidden;
+  background-color: $escuro;
   opacity: 0;
   &__content {
     position: absolute;
@@ -49,8 +50,6 @@
 
 .popup--aparecer {
   opacity: 1;
-  background-color: $escuro;
-  backdrop-filter: blur($blur);
   visibility: visible;
 }
 

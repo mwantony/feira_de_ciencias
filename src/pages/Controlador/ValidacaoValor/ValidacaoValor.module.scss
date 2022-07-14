@@ -12,7 +12,8 @@
   height: 100vh;
   transition: 500ms ease-in-out;
   visibility: hidden;
-  background-color: transparent;
+  opacity: 0;
+  background-color: $escuro;
 
   &__content {
     position: absolute;
@@ -45,8 +46,7 @@
 }
 
 .popup--aparecer {
-  background-color: $escuro;
-  backdrop-filter: blur($blur);
+  opacity: 1;
   visibility: visible;
 }
 
