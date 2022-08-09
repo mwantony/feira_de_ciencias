@@ -14,9 +14,19 @@ export default function Carteira({ entradas, saidas, total }: Props) {
           className={classNames({
             [styles["carteira__entradas"]]: true,
             [styles["carteira__opcao"]]: true,
+            [styles["carteira__desk"]]: true,
           })}
         >
           Total de entradas:{" "}
+        </p>
+        <p
+          className={classNames({
+            [styles["carteira__saidas"]]: true,
+            [styles["carteira__opcao"]]: true,
+            [styles["carteira__mobile"]]: true,
+          })}
+        >
+          Entradas:
         </p>
         <p
           className={classNames({
@@ -32,9 +42,19 @@ export default function Carteira({ entradas, saidas, total }: Props) {
           className={classNames({
             [styles["carteira__saidas"]]: true,
             [styles["carteira__opcao"]]: true,
+            [styles["carteira__desk"]]: true,
           })}
         >
           Total de saídas:
+        </p>
+        <p
+          className={classNames({
+            [styles["carteira__saidas"]]: true,
+            [styles["carteira__opcao"]]: true,
+            [styles["carteira__mobile"]]: true,
+          })}
+        >
+          Saídas:
         </p>
         <p
           className={classNames({

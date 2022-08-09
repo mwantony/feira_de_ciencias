@@ -4,7 +4,7 @@
   &__div {
     display: flex;
     height: 100px;
-    width: 100%;
+    width: 80%;
     justify-content: space-evenly;
     align-items: center;
     margin: auto;
@@ -34,6 +34,10 @@
     margin-left: 1rem;
   }
 
+  &__desk {
+    display: none;
+  }
+
   &__saidas--currency,
   &__entradas--currency {
     font-size: 18px;
@@ -55,6 +59,8 @@
   color: $positivo;
 }
 
+
+
 @media(min-width: $media) {
   .carteira {
     &__div {
@@ -62,6 +68,12 @@
     }
     &__opcao {
       font-size: 23px;
+    }
+    &__mobile {
+      display: none;
+    }
+    &__desk {
+      display: block;
     }
     &__total {
       font-size: 27px;
